@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rólunk – Civil Ház Veszprém</title>
+<meta name="description" content="A Veszprém Megyei Civil Hálózatért Közhasznú Egyesület küldetése, értékei és csapata.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --sarga:      #F5C842;
+  --terrakotta: #C4673A;
+  --terrakotta-sotet: #9E4F28;
+  --okker:      #D4A855;
+  --sotet:      #2C2415;
+  --feher:      #FFFDF5;
+  --halvany:    #FDF6E3;
+  --szurke:     #8A8070;
+  --szurke-vilagos: #C8BEA8;
+  --zold:       #4A6E2A;
+  --zold-vilagos: #6A9A3A;
+  --font-cim:   'Playfair Display', Georgia, serif;
+  --font-test:  'DM Sans', system-ui, sans-serif;
+  --radius-sm:  6px;
+  --radius-md:  12px;
+  --radius-lg:  20px;
+  --radius-xl:  32px;
+  --shadow-sm:  0 2px 8px rgba(44,36,21,.08);
+  --shadow-md:  0 6px 24px rgba(44,36,21,.12);
+  --shadow-lg:  0 16px 48px rgba(44,36,21,.18);
+  --ease-out:   cubic-bezier(0.16, 1, 0.3, 1);
+  --nav-h: 72px;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--font-test);
+  background: var(--feher);
+  color: var(--sotet);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: .025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 128px;
+}
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+/* ── NAV ── */
+#nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--nav-h);
+  z-index: 1000;
+  background: var(--sotet);
+  border-bottom: 1px solid rgba(245,200,66,.12);
+  transition: background .4s var(--ease-out), box-shadow .4s, border-color .4s;
+}
+#nav.scrolled {
+  background: rgba(253,246,227,.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom-color: rgba(44,36,21,.1);
+  box-shadow: 0 1px 0 rgba(44,36,21,.08), var(--shadow-sm);
+}
+.nav-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: auto;
+  flex-shrink: 0;
+}
+.nav-logo img { height: 42px; width: auto; transition: transform .3s var(--ease-out); }
+.nav-logo:hover img { transform: scale(1.05) rotate(-3deg); }
+.nav-logo-name { font-family: var(--font-cim); font-size: 18px; font-weight: 700; color: var(--sarga); transition: color .4s; }
+.nav-logo-sub  { font-size: 10px; font-weight: 500; color: rgba(245,200,66,.6); letter-spacing: .04em; transition: color .4s; }
+.nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+.nav-links a {
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(253,246,227,.8);
+  border-radius: var(--radius-sm);
+  transition: background .2s, color .2s;
+  white-space: nowrap;
+}
+.nav-links a:hover { background: rgba(245,200,66,.1); color: var(--sarga); }
+.nav-links a.aktiv { color: var(--sarga); font-weight: 600; }
+#nav.scrolled .nav-logo-name { color: var(--sotet); }
+#nav.scrolled .nav-logo-sub  { color: var(--szurke); }
+#nav.scrolled .nav-links a   { color: var(--sotet); }
+#nav.scrolled .nav-links a:hover { background: rgba(44,36,21,.07); color: var(--terrakotta); }
+#nav.scrolled .nav-links a.aktiv { color: var(--terrakotta); }
+#nav.scrolled .nav-hamburger span { background: var(--sotet); }
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  background: var(--terrakotta);
+  color: #fff !important;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: 8px;
+  transition: background .2s, transform .2s, box-shadow .2s;
+  flex-shrink: 0;
+}
+.nav-cta:hover { background: var(--terrakotta-sotet) !important; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(196,103,58,.3); }
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  width: 36px; height: 36px;
+  align-items: center; justify-content: center;
+  border-radius: var(--radius-sm);
+  transition: background .2s;
+}
+.nav-hamburger span {
+  display: block;
+  width: 22px; height: 2px;
+  background: rgba(253,246,227,.85);
+  border-radius: 2px;
+  transition: transform .3s var(--ease-out), opacity .3s, background .4s;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.nav-mobile {
+  position: fixed;
+  top: var(--nav-h);
+  left: 0; right: 0;
+  background: var(--halvany);
+  border-bottom: 1px solid rgba(44,36,21,.08);
+  padding: 16px 24px 24px;
+  display: flex; flex-direction: column; gap: 4px;
+  transform: translateY(-110%);
+  opacity: 0;
+  transition: transform .4s var(--ease-out), opacity .3s;
+  z-index: 999;
+  box-shadow: var(--shadow-lg);
+}
+.nav-mobile.open { transform: none; opacity: 1; }
+.nav-mobile a { padding: 12px 16px; font-size: 16px; font-weight: 500; border-radius: var(--radius-md); transition: background .2s; }
+.nav-mobile a:hover { background: rgba(44,36,21,.06); }
+.nav-mobile .nav-cta { margin-left: 0; margin-top: 8px; justify-content: center; font-size: 16px; padding: 14px 24px; }
+
+/* ── PAGE HERO ── */
+.page-hero {
+  background: var(--sotet);
+  padding: calc(var(--nav-h) + 64px) 24px 80px;
+  position: relative;
+  overflow: hidden;
+}
+.page-hero-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.page-hero-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: .35;
+}
+.phb-1 { width: 500px; height: 500px; background: radial-gradient(circle, var(--sarga), transparent 70%); top: -150px; right: -100px; animation: phBlob1 14s ease-in-out infinite; }
+.phb-2 { width: 300px; height: 300px; background: radial-gradient(circle, var(--terrakotta), transparent 70%); bottom: -100px; left: 5%; animation: phBlob2 18s ease-in-out infinite; }
+@keyframes phBlob1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-40px,30px)} }
+@keyframes phBlob2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(30px,-30px)} }
+.page-hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(245,200,66,.03) 1px, transparent 1px), linear-gradient(90deg, rgba(245,200,66,.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.page-hero-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+.page-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(245,200,66,.12);
+  border: 1px solid rgba(245,200,66,.25);
+  border-radius: 999px;
+  padding: 6px 14px;
+  color: var(--sarga);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  margin-bottom: 24px;
+  animation: fadeUp .7s var(--ease-out) .1s both;
+}
+.page-title {
+  font-family: var(--font-cim);
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 800;
+  color: var(--feher);
+  line-height: 1.1;
+  letter-spacing: -.02em;
+  margin-bottom: 20px;
+  animation: fadeUp .7s var(--ease-out) .2s both;
+}
+.page-title em { font-style: italic; color: var(--sarga); }
+.page-desc {
+  font-size: 18px;
+  color: rgba(253,246,227,.6);
+  line-height: 1.7;
+  max-width: 580px;
+  margin: 0 auto;
+  animation: fadeUp .7s var(--ease-out) .3s both;
+}
+@keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:none} }
+
+/* ── REVEAL ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .7s var(--ease-out), transform .7s var(--ease-out);
+}
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ── CONTENT SECTIONS ── */
+.content-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Chapter blocks */
+.chapter {
+  padding: 80px 0;
+  border-bottom: 1px solid rgba(44,36,21,.07);
+}
+.chapter:last-child { border-bottom: none; }
+
+.chapter-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--terrakotta);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.chapter-eyebrow::before {
+  content: '';
+  display: block;
+  width: 24px; height: 2px;
+  background: var(--terrakotta);
+  border-radius: 1px;
+}
+.chapter-title {
+  font-family: var(--font-cim);
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 700;
+  color: var(--sotet);
+  line-height: 1.15;
+  margin-bottom: 32px;
+}
+.chapter-lead {
+  font-size: 19px;
+  font-weight: 400;
+  color: var(--sotet);
+  line-height: 1.75;
+  margin-bottom: 20px;
+  font-family: var(--font-cim);
+  font-style: italic;
+  border-left: 3px solid var(--sarga);
+  padding-left: 20px;
+  background: linear-gradient(to right, rgba(245,200,66,.05), transparent);
+  padding: 16px 20px;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+.chapter-text {
+  font-size: 16px;
+  color: var(--szurke);
+  line-height: 1.85;
+  margin-bottom: 16px;
+}
+.chapter-text:last-child { margin-bottom: 0; }
+.chapter-text strong { color: var(--sotet); font-weight: 600; }
+
+/* Values grid */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 36px;
+}
+.value-card {
+  background: var(--halvany);
+  border: 1.5px solid rgba(44,36,21,.07);
+  border-radius: var(--radius-xl);
+  padding: 28px 24px;
+  transition: transform .3s var(--ease-out), box-shadow .3s;
+}
+.value-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.value-icon {
+  width: 48px; height: 48px;
+  border-radius: var(--radius-md);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 16px;
+}
+.value-icon svg { width: 24px; height: 24px; }
+.vi-sarga { background: rgba(245,200,66,.15); color: #8a6d00; }
+.vi-terra  { background: rgba(196,103,58,.12); color: var(--terrakotta); }
+.vi-zold   { background: rgba(74,110,42,.12);  color: var(--zold); }
+.value-name {
+  font-family: var(--font-cim);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--sotet);
+  margin-bottom: 8px;
+}
+.value-desc { font-size: 14px; color: var(--szurke); line-height: 1.6; }
+
+/* Impact strip */
+.impact-strip {
+  background: var(--sotet);
+  border-radius: var(--radius-xl);
+  padding: 40px 48px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin: 40px 0;
+}
+.impact-item { text-align: center; }
+.impact-num {
+  font-family: var(--font-cim);
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--sarga);
+  line-height: 1;
+  margin-bottom: 6px;
+  letter-spacing: -.02em;
+}
+.impact-lbl { font-size: 13px; color: rgba(253,246,227,.5); font-weight: 500; line-height: 1.4; }
+
+/* Award highlight */
+.award-box {
+  background: linear-gradient(135deg, rgba(245,200,66,.12) 0%, rgba(212,168,85,.08) 100%);
+  border: 1.5px solid rgba(245,200,66,.25);
+  border-radius: var(--radius-xl);
+  padding: 32px 36px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  margin: 32px 0;
+}
+.award-icon {
+  flex-shrink: 0;
+  width: 56px; height: 56px;
+  background: rgba(245,200,66,.2);
+  border-radius: var(--radius-lg);
+  display: flex; align-items: center; justify-content: center;
+  color: #8a6d00;
+}
+.award-icon svg { width: 28px; height: 28px; }
+.award-title { font-family: var(--font-cim); font-size: 18px; font-weight: 700; color: var(--sotet); margin-bottom: 6px; }
+.award-desc { font-size: 14px; color: var(--szurke); line-height: 1.65; }
+
+/* Training list */
+.training-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+.training-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 15px;
+  color: var(--szurke);
+  line-height: 1.5;
+}
+.tli-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--terrakotta);
+  margin-top: 7px;
+  flex-shrink: 0;
+}
+
+/* Team box */
+.team-box {
+  background: var(--halvany);
+  border: 1.5px solid rgba(44,36,21,.07);
+  border-radius: var(--radius-xl);
+  padding: 36px 40px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 36px;
+  align-items: center;
+  margin: 32px 0;
+}
+.team-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.team-avatars {
+  display: flex;
+  gap: -8px;
+}
+.team-avatar {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-cim);
+  font-size: 20px;
+  font-weight: 700;
+  border: 3px solid var(--halvany);
+  margin-left: -10px;
+}
+.team-avatar:first-child { margin-left: 0; }
+.ta-1 { background: linear-gradient(135deg, var(--sarga), var(--okker)); color: var(--sotet); }
+.ta-2 { background: linear-gradient(135deg, var(--terrakotta), #e08040); color: #fff; }
+.ta-3 { background: linear-gradient(135deg, var(--zold), var(--zold-vilagos)); color: #fff; }
+.team-label { font-size: 13px; color: var(--szurke); font-weight: 500; text-align: center; }
+.team-stat-num { font-family: var(--font-cim); font-size: 28px; font-weight: 700; color: var(--terrakotta); }
+
+/* Office info */
+.office-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+}
+.office-card {
+  background: var(--feher);
+  border: 1.5px solid rgba(44,36,21,.07);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  text-align: center;
+}
+.office-num {
+  font-family: var(--font-cim);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--sotet);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.office-lbl { font-size: 13px; color: var(--szurke); line-height: 1.4; }
+
+/* Mission statement closing */
+.mission-close {
+  background: var(--sotet);
+  border-radius: var(--radius-xl);
+  padding: 56px 48px;
+  text-align: center;
+  margin: 40px 0 80px;
+  position: relative;
+  overflow: hidden;
+}
+.mission-close::before {
+  content: '"';
+  position: absolute;
+  font-family: var(--font-cim);
+  font-size: 300px;
+  color: rgba(245,200,66,.04);
+  top: -60px; left: 24px;
+  line-height: 1;
+  pointer-events: none;
+}
+.mission-close-text {
+  font-family: var(--font-cim);
+  font-size: clamp(18px, 2.5vw, 26px);
+  font-style: italic;
+  color: rgba(253,246,227,.8);
+  line-height: 1.6;
+  max-width: 660px;
+  margin: 0 auto 28px;
+  position: relative;
+  z-index: 1;
+}
+.mission-close-text strong { color: var(--sarga); font-style: normal; }
+
+/* CTA button */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 15px 28px;
+  background: var(--sarga);
+  color: var(--sotet);
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 700;
+  transition: transform .25s var(--ease-out), box-shadow .25s;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(245,200,66,.35); }
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 15px 28px;
+  background: transparent;
+  color: rgba(253,246,227,.75);
+  border: 1.5px solid rgba(253,246,227,.2);
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 600;
+  transition: background .2s, border-color .2s, transform .25s;
+}
+.btn-ghost:hover { background: rgba(253,246,227,.08); border-color: rgba(253,246,227,.4); transform: translateY(-1px); }
+.cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
+
+/* Breadcrumb */
+.breadcrumb {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 20px 24px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--szurke-vilagos);
+}
+.breadcrumb a { color: var(--szurke); transition: color .2s; }
+.breadcrumb a:hover { color: var(--terrakotta); }
+.breadcrumb-sep { color: var(--szurke-vilagos); font-size: 11px; }
+
+/* Footer */
+#footer {
+  background: #1e1608;
+  padding: 48px 24px 28px;
+}
+.footer-inner { max-width: 1240px; margin: 0 auto; }
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(253,246,227,.06);
+}
+.footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+.footer-logo img { height: 34px; }
+.footer-logo-name { font-family: var(--font-cim); font-size: 16px; font-weight: 700; color: var(--sarga); }
+.footer-brand-desc { font-size: 13px; color: rgba(253,246,227,.35); line-height: 1.7; max-width: 250px; }
+.footer-col-title { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--sarga); margin-bottom: 14px; }
+.footer-col-links { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.footer-col-links a { font-size: 13px; color: rgba(253,246,227,.4); transition: color .2s; }
+.footer-col-links a:hover { color: rgba(253,246,227,.8); }
+.footer-bottom {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; flex-wrap: wrap;
+  padding-top: 24px;
+}
+.footer-copy { font-size: 12px; color: rgba(253,246,227,.25); line-height: 1.6; }
+.footer-legal { display: flex; gap: 20px; }
+.footer-legal a { font-size: 12px; color: rgba(253,246,227,.25); transition: color .2s; }
+.footer-legal a:hover { color: rgba(253,246,227,.6); }
+
+/* Accessibility */
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border-width: 0; }
+:focus-visible { outline: 2.5px solid var(--sarga); outline-offset: 3px; border-radius: 4px; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 28px; }
+  .footer-brand { grid-column: 1 / -1; }
+  .values-grid { grid-template-columns: 1fr 1fr; }
+  .impact-strip { grid-template-columns: repeat(2, 1fr); }
+  .team-box { grid-template-columns: 1fr; }
+  .office-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  :root { --nav-h: 64px; }
+  .nav-links, .nav-cta { display: none; }
+  .nav-hamburger { display: flex; }
+  .values-grid { grid-template-columns: 1fr; }
+  .impact-strip { padding: 28px 24px; gap: 20px; }
+  .award-box { flex-direction: column; }
+  .team-box { padding: 24px; }
+  .mission-close { padding: 40px 28px; }
+  .footer-top { grid-template-columns: 1fr; gap: 24px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav" aria-label="Főnavigáció">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Civil Ház – főoldal">
+      <img src="Civil Ház Logo 2026.png" alt="Civil Ház logó" width="42" height="42">
+      <div style="display:flex;flex-direction:column;line-height:1.1;">
+        <span class="nav-logo-name">Civil Ház</span>
+        <span class="nav-logo-sub">Veszprém</span>
+      </div>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html#services">Szolgáltatások</a></li>
+      <li><a href="index.html#widget">Pályázati előszűrő</a></li>
+      <li><a href="index.html#news">Hírek</a></li>
+      <li><a href="rolunk.html" class="aktiv">Rólunk</a></li>
+      <li><a href="index.html#contact">Kapcsolat</a></li>
+    </ul>
+    <a href="index.html#contact" class="nav-cta">
+      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Időpontot kérek
+    </a>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menü megnyitása" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile nav -->
+<div class="nav-mobile" id="mobile-nav" role="dialog" aria-label="Mobilmenü">
+  <a href="index.html#services">Szolgáltatások</a>
+  <a href="index.html#widget">Pályázati előszűrő</a>
+  <a href="index.html#news">Hírek</a>
+  <a href="rolunk.html" style="color:var(--terrakotta);font-weight:600;">Rólunk</a>
+  <a href="index.html#contact">Kapcsolat</a>
+  <a href="index.html#contact" class="nav-cta">
+    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+    Időpontot kérek
+  </a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg">
+    <div class="page-hero-blob phb-1"></div>
+    <div class="page-hero-blob phb-2"></div>
+  </div>
+  <div class="page-hero-inner">
+    <div class="page-eyebrow">Veszprém Megyei Civil Hálózatért Közhasznú Egyesület</div>
+    <h1 class="page-title">Kik <em>vagyunk?</em></h1>
+    <p class="page-desc">Több mint két évtizede vagyunk a veszprémi civil szféra megbízható partnere – pályázatoktól a jogi tanácsadáson át a közösségépítésig.</p>
+  </div>
+</section>
+
+<!-- Breadcrumb -->
+<nav class="breadcrumb" aria-label="Helymutató">
+  <a href="index.html">Főoldal</a>
+  <span class="breadcrumb-sep" aria-hidden="true">›</span>
+  <span aria-current="page">Rólunk</span>
+</nav>
+
+<!-- CONTENT -->
+<div class="content-wrap">
+
+  <!-- KÜLDETÉS -->
+  <div class="chapter reveal">
+    <div class="chapter-eyebrow">Küldetés</div>
+    <h2 class="chapter-title">Miért létezünk?</h2>
+    <div class="chapter-lead">
+      Egyesületünk küldetése, hogy a helyi közösségek erejét megerősítve olyan együttműködéseket hozzunk létre, amelyek hozzájárulnak a társadalmi kohézió növeléséhez, a közösségi felelősségvállalás elmélyítéséhez és az önkéntesség kultúrájának megerősítéséhez Veszprém megyében.
+    </div>
+    <p class="chapter-text">
+      Tevékenységünk ezért a civil közösségek stabil szakmai hátterét, képviseletét és fejlesztését szolgálja.
+    </p>
+
+    <div class="values-grid" style="margin-top:40px;">
+      <div class="value-card reveal">
+        <div class="value-icon vi-sarga">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </div>
+        <div class="value-name">Társadalmi kohézió</div>
+        <div class="value-desc">Közösségek összetartásának erősítése, hálózatépítés és együttműködések támogatása.</div>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-icon vi-terra">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+        </div>
+        <div class="value-name">Önkéntesség</div>
+        <div class="value-desc">Az önkéntes kultúra elismerése és népszerűsítése – mert a közösség legfontosabb erőforrása az ember.</div>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-icon vi-zold">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+        </div>
+        <div class="value-name">Stabil szakmai háttér</div>
+        <div class="value-desc">Civil szervezetek képviselete és fejlesztése – jogi, pénzügyi és kommunikációs szaktudással.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- A MÚLT -->
+  <div class="chapter reveal">
+    <div class="chapter-eyebrow">A múlt</div>
+    <h2 class="chapter-title">Több mint két évtized a civil szférában</h2>
+    <p class="chapter-text">
+      Több, mint két évtizedes munkánk során a civil szféra legkülönbözőbb szereplőinek – <strong>egyesületeknek, alapítványoknak, ifjúsági közösségeknek és önkéntes csoportoknak</strong> – nyújtottunk jogi, pénzügyi, pályázati és kommunikációs tanácsadást.
+    </p>
+    <p class="chapter-text">
+      Tevékenységünkkel, rendezvényeinkkel évente több száz szervezetet érünk el közvetve és közvetlenül.
+    </p>
+
+    <div class="impact-strip reveal">
+      <div class="impact-item">
+        <div class="impact-num">120+</div>
+        <div class="impact-lbl">tanácsadott civil szervezet</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-num">200+</div>
+        <div class="impact-lbl">sikeres pályázat leadva</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-num">20+</div>
+        <div class="impact-lbl">év tapasztalat</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-num">VMP</div>
+        <div class="impact-lbl">Veszprém megye – helyi tudás</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TÁRSADALMI HATÁS -->
+  <div class="chapter reveal">
+    <div class="chapter-eyebrow">Társadalmi hatás</div>
+    <h2 class="chapter-title">Híd a szférak között</h2>
+    <p class="chapter-text">
+      Egyesületünk egyik legfontosabb értéke, hogy képes <strong>hidat képezni a civil szféra, az önkormányzatok, az oktatási intézmények és a helyi közösségek között.</strong>
+    </p>
+    <p class="chapter-text">
+      Az elmúlt években nagy hangsúlyt fektettünk az önkéntesség elismerésére és népszerűsítésére.
+    </p>
+
+    <div class="award-box reveal">
+      <div class="award-icon">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+      </div>
+      <div>
+        <div class="award-title">„Veszprém megye Önkéntese" díj</div>
+        <div class="award-desc">Az általunk alapított díj immár <strong>több mint egy évtizede</strong> jelképezi a társadalmi felelősségvállalás megbecsülését Veszprém megyében. Évente ismerjük el azokat, akik közösségükért tesznek.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KÉPZÉSEK -->
+  <div class="chapter reveal">
+    <div class="chapter-eyebrow">Képzések és fejlesztés</div>
+    <h2 class="chapter-title">Tudás, ami hatékonyabbá tesz</h2>
+    <p class="chapter-text">
+      A civil szervezetek hatékony működésének támogatása érdekében rendszeresen szervezünk <strong>szakmai képzéseket és vezetői workshopokat</strong>, amelyek az alábbi kompetenciák fejlesztését célozzák:
+    </p>
+
+    <ul class="training-list">
+      <li><div class="tli-dot"></div><span>Adományszervezés és fundraising stratégiák</span></li>
+      <li><div class="tli-dot"></div><span>Projektmenedzsment civil szervezeteknek</span></li>
+      <li><div class="tli-dot"></div><span>Kommunikációs kompetenciák fejlesztése</span></li>
+      <li><div class="tli-dot"></div><span>Civil jogi ismeretek – alapítás, változás, megszűnés</span></li>
+      <li><div class="tli-dot"></div><span>Pénzügyi tervezés – projekt költségvetés, elszámolás</span></li>
+    </ul>
+
+    <p class="chapter-text" style="margin-top:20px;">
+      Tanácsadási szolgáltatásunk révén hozzájárulunk a civil szervezetek <strong>fenntartható működéséhez és fejlődéséhez.</strong>
+    </p>
+  </div>
+
+  <!-- CSAPAT ÉS HÁTTÉR -->
+  <div class="chapter reveal">
+    <div class="chapter-eyebrow">Szakmai csapat és háttér</div>
+    <h2 class="chapter-title">Akikre számíthat</h2>
+
+    <div class="team-box">
+      <div class="team-visual">
+        <div class="team-avatars">
+          <div class="team-avatar ta-1">M</div>
+          <div class="team-avatar ta-2">K</div>
+          <div class="team-avatar ta-3">É</div>
+        </div>
+        <div class="team-stat-num">20+</div>
+        <div class="team-label">év közös tapasztalat</div>
+      </div>
+      <div>
+        <p class="chapter-text" style="margin-bottom:12px;">
+          Csapatunk <strong>három főből áll</strong>, akik több mint húszéves közös tapasztalattal bírnak nonprofit, közösségfejlesztési, kulturális és szociális projektek területén.
+        </p>
+        <p class="chapter-text" style="margin-bottom:12px;">
+          Munkánkat kiterjedt szakmai kapcsolatrendszer, stabil partnerségek és megbízható kommunikációs hálózat segíti.
+        </p>
+        <p class="chapter-text">
+          Egyesületünk <strong>három, akadálymentesített, modern eszközökkel felszerelt irodával</strong> rendelkezik Veszprém belvárosában.
+        </p>
+      </div>
+    </div>
+
+    <div class="office-grid">
+      <div class="office-card reveal">
+        <div class="office-num">3</div>
+        <div class="office-lbl">akadálymentesített iroda Veszprém belvárosában</div>
+      </div>
+      <div class="office-card reveal">
+        <div class="office-num">3</div>
+        <div class="office-lbl">szakértő – nonprofit, kulturális, szociális területen</div>
+      </div>
+      <div class="office-card reveal">
+        <div class="office-num">20+</div>
+        <div class="office-lbl">éves közös tapasztalat civil szférában</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /content-wrap -->
+
+<!-- CLOSING MISSION -->
+<div class="content-wrap">
+  <div class="mission-close reveal">
+    <p class="mission-close-text">
+      Hiszünk abban, hogy a civil szféra az élhető, szolidáris társadalom <strong>egyik legfontosabb motorja.</strong> Tevékenységünkkel hozzájárulunk ahhoz, hogy Veszprém vármegyében olyan közösségek működjenek, amelyek értékként tekintenek az együttműködésre, az önkéntességre és a társadalmi felelősségvállalásra.
+    </p>
+    <div class="cta-btns">
+      <a href="index.html#contact" class="btn-primary">
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Vegyük fel a kapcsolatot
+      </a>
+      <a href="index.html#services" class="btn-ghost">
+        Szolgáltatásaink →
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer id="footer" aria-label="Lábléc">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="Civil Ház Logo 2026.png" alt="Civil Ház logó" width="34" height="34">
+          <span class="footer-logo-name">Civil Ház</span>
+        </div>
+        <p class="footer-brand-desc">Veszprém Megyei Civil Hálózatért Közhasznú Egyesület – civil szervezetek tanácsadása, fejlesztése és pályázatírása.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Civil Ház</div>
+        <ul class="footer-col-links" role="list">
+          <li><a href="rolunk.html">Rólunk</a></li>
+          <li><a href="index.html#contact">Kapcsolat</a></li>
+          <li><a href="index.html#news">Hírek</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Szolgáltatások</div>
+        <ul class="footer-col-links" role="list">
+          <li><a href="index.html#services">Pályázatírás</a></li>
+          <li><a href="index.html#services">Jogi tanácsadás</a></li>
+          <li><a href="index.html#services">Szervezetfejlesztés</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Eszközök</div>
+        <ul class="footer-col-links" role="list">
+          <li><a href="index.html#widget">Pályázati előszűrő</a></li>
+          <li><a href="#">ÁSZF</a></li>
+          <li><a href="#">Adatkezelés</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Civil Ház · 8200 Veszprém, Kossuth u. 10. · civilhaz@vpmegye.hu</div>
+      <div class="footer-legal">
+        <a href="#">Adatvédelem</a>
+        <a href="#">ÁSZF</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* Nav scroll */
+(function(){
+  var nav = document.getElementById('nav');
+  function update(){ nav.classList.toggle('scrolled', window.scrollY > 40); }
+  window.addEventListener('scroll', update, {passive:true});
+  update();
+})();
+
+/* Hamburger */
+(function(){
+  var btn  = document.getElementById('hamburger');
+  var menu = document.getElementById('mobile-nav');
+  function close(){
+    btn.classList.remove('open');
+    menu.classList.remove('open');
+    btn.setAttribute('aria-expanded','false');
+  }
+  btn.addEventListener('click',function(){
+    var open = menu.classList.toggle('open');
+    btn.classList.toggle('open',open);
+    btn.setAttribute('aria-expanded',open?'true':'false');
+  });
+  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close);});
+  document.addEventListener('click',function(e){
+    if(!nav.contains(e.target)&&!menu.contains(e.target)) close();
+  });
+})();
+
+/* Scroll reveal */
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){
+    els.forEach(function(el){el.classList.add('visible');});
+    return;
+  }
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+    });
+  },{threshold:0.1,rootMargin:'0px 0px -30px 0px'});
+  els.forEach(function(el){obs.observe(el);});
+})();
+</script>
+</body>
+</html>

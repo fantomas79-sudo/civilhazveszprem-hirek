@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hírek & aktualitások – Civil Ház Veszprém</title>
+<meta name="description" content="Pályázati határidők, civil szektort érintő aktualitások, NEA, Norvég Alap, SZJA 1% – frissítve: naponta.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --sarga:      #F5C842;
+  --terrakotta: #C4673A;
+  --terrakotta-sotet: #9E4F28;
+  --okker:      #D4A855;
+  --sotet:      #2C2415;
+  --feher:      #FFFDF5;
+  --halvany:    #FDF6E3;
+  --szurke:     #8A8070;
+  --szurke-vilagos: #C8BEA8;
+  --zold:       #4A6E2A;
+  --zold-vilagos: #6A9A3A;
+  --font-cim:   'Playfair Display', Georgia, serif;
+  --font-test:  'DM Sans', system-ui, sans-serif;
+  --radius-sm: 6px; --radius-md: 12px; --radius-lg: 20px; --radius-xl: 32px;
+  --shadow-sm: 0 2px 8px rgba(44,36,21,.08);
+  --shadow-md: 0 6px 24px rgba(44,36,21,.12);
+  --shadow-lg: 0 16px 48px rgba(44,36,21,.18);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --nav-h: 72px;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: var(--font-test); background: var(--feher); color: var(--sotet); line-height: 1.6; overflow-x: hidden; }
+body::before {
+  content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 9999; opacity: .025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 128px;
+}
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+/* ── NAV (azonos a főoldallal) ── */
+#nav {
+  position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); z-index: 1000;
+  background: var(--sotet); border-bottom: 1px solid rgba(245,200,66,.12);
+  transition: background .4s var(--ease-out), box-shadow .4s, border-color .4s;
+}
+#nav.scrolled {
+  background: rgba(253,246,227,.96); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-bottom-color: rgba(44,36,21,.1); box-shadow: 0 1px 0 rgba(44,36,21,.08), var(--shadow-sm);
+}
+.nav-inner { max-width: 1240px; margin: 0 auto; height: 100%; padding: 0 24px; display: flex; align-items: center; gap: 8px; }
+.nav-logo { display: flex; align-items: center; gap: 10px; margin-right: auto; flex-shrink: 0; }
+.nav-logo img { height: 42px; width: auto; transition: transform .3s var(--ease-out); }
+.nav-logo:hover img { transform: scale(1.05) rotate(-3deg); }
+.nav-logo-name { font-family: var(--font-cim); font-size: 18px; font-weight: 700; color: var(--sarga); transition: color .4s; }
+.nav-logo-sub  { font-size: 10px; font-weight: 500; color: rgba(245,200,66,.6); letter-spacing: .04em; transition: color .4s; }
+.nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+.nav-links a { padding: 6px 12px; font-size: 14px; font-weight: 500; color: rgba(253,246,227,.8); border-radius: var(--radius-sm); transition: background .2s, color .2s; white-space: nowrap; }
+.nav-links a:hover { background: rgba(245,200,66,.1); color: var(--sarga); }
+.nav-links a.aktiv { color: var(--sarga); font-weight: 600; }
+#nav.scrolled .nav-logo-name { color: var(--sotet); }
+#nav.scrolled .nav-logo-sub  { color: var(--szurke); }
+#nav.scrolled .nav-links a   { color: var(--sotet); }
+#nav.scrolled .nav-links a:hover { background: rgba(44,36,21,.07); color: var(--terrakotta); }
+#nav.scrolled .nav-links a.aktiv { color: var(--terrakotta); }
+#nav.scrolled .nav-hamburger span { background: var(--sotet); }
+.nav-cta {
+  display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px;
+  background: var(--terrakotta); color: #fff !important; border-radius: 999px;
+  font-size: 14px; font-weight: 600; margin-left: 8px;
+  transition: background .2s, transform .2s, box-shadow .2s; flex-shrink: 0;
+}
+.nav-cta:hover { background: var(--terrakotta-sotet) !important; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(196,103,58,.3); }
+.nav-hamburger { display: none; flex-direction: column; gap: 5px; width: 36px; height: 36px; align-items: center; justify-content: center; border-radius: var(--radius-sm); transition: background .2s; }
+.nav-hamburger span { display: block; width: 22px; height: 2px; background: rgba(253,246,227,.85); border-radius: 2px; transition: transform .3s var(--ease-out), opacity .3s, background .4s; }
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.nav-mobile {
+  position: fixed; top: var(--nav-h); left: 0; right: 0; background: var(--halvany);
+  border-bottom: 1px solid rgba(44,36,21,.08); padding: 16px 24px 24px;
+  display: flex; flex-direction: column; gap: 4px;
+  transform: translateY(-110%); opacity: 0;
+  transition: transform .4s var(--ease-out), opacity .3s; z-index: 999; box-shadow: var(--shadow-lg);
+}
+.nav-mobile.open { transform: none; opacity: 1; }
+.nav-mobile a { padding: 12px 16px; font-size: 16px; font-weight: 500; border-radius: var(--radius-md); transition: background .2s; }
+.nav-mobile a:hover { background: rgba(44,36,21,.06); }
+.nav-mobile .nav-cta { margin-left: 0; margin-top: 8px; justify-content: center; font-size: 16px; padding: 14px 24px; }
+
+/* ── PAGE HERO ── */
+.page-hero {
+  background: var(--sotet); padding: calc(var(--nav-h) + 60px) 24px 72px;
+  position: relative; overflow: hidden;
+}
+.page-hero::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(245,200,66,.03) 1px, transparent 1px), linear-gradient(90deg, rgba(245,200,66,.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.phb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: .3; pointer-events: none; }
+.phb-1 { width: 500px; height: 500px; background: radial-gradient(circle, var(--sarga), transparent 70%); top: -150px; right: -100px; animation: phb1 14s ease-in-out infinite; }
+.phb-2 { width: 300px; height: 300px; background: radial-gradient(circle, var(--terrakotta), transparent 70%); bottom: -80px; left: 8%; animation: phb2 18s ease-in-out infinite; }
+@keyframes phb1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-40px,30px)} }
+@keyframes phb2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(30px,-30px)} }
+.page-hero-inner { max-width: 1240px; margin: 0 auto; position: relative; z-index: 1; display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+.page-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(245,200,66,.12); border: 1px solid rgba(245,200,66,.25);
+  border-radius: 999px; padding: 6px 14px; color: var(--sarga);
+  font-size: 13px; font-weight: 600; letter-spacing: .04em; margin-bottom: 20px;
+  animation: fadeUp .7s var(--ease-out) .1s both;
+}
+.eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--sarga); animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.7)} }
+.page-title { font-family: var(--font-cim); font-size: clamp(32px, 4.5vw, 56px); font-weight: 800; color: var(--feher); line-height: 1.1; letter-spacing: -.02em; animation: fadeUp .7s var(--ease-out) .2s both; }
+.page-title em { font-style: italic; color: var(--sarga); }
+.page-meta { font-size: 14px; color: rgba(253,246,227,.4); margin-top: 10px; font-weight: 500; animation: fadeUp .7s var(--ease-out) .3s both; }
+.frissites-badge {
+  background: rgba(74,110,42,.2); border: 1px solid rgba(74,222,128,.25);
+  border-radius: var(--radius-md); padding: 12px 18px; text-align: right;
+  animation: fadeUp .7s var(--ease-out) .3s both; flex-shrink: 0;
+}
+.fb-label { font-size: 11px; color: rgba(253,246,227,.4); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 4px; }
+.fb-date { font-family: var(--font-cim); font-size: 18px; font-weight: 700; color: #4ade80; }
+.fb-note { font-size: 11px; color: rgba(74,222,128,.5); margin-top: 2px; }
+@keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:none} }
+
+/* ── BREADCRUMB ── */
+.breadcrumb { max-width: 1240px; margin: 0 auto; padding: 18px 24px 0; display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--szurke-vilagos); }
+.breadcrumb a { color: var(--szurke); transition: color .2s; }
+.breadcrumb a:hover { color: var(--terrakotta); }
+.breadcrumb-sep { font-size: 11px; }
+
+/* ── FILTER BAR ── */
+.filter-wrap { max-width: 1240px; margin: 0 auto; padding: 24px 24px 0; }
+.filter-bar { display: flex; gap: 8px; flex-wrap: wrap; }
+.filter-btn {
+  padding: 7px 16px; border-radius: 999px; font-size: 13px; font-weight: 600;
+  border: 1.5px solid rgba(44,36,21,.12); background: transparent; color: var(--szurke);
+  transition: background .2s, border-color .2s, color .2s; cursor: pointer;
+}
+.filter-btn:hover { background: rgba(44,36,21,.05); color: var(--sotet); }
+.filter-btn.active { background: var(--sotet); border-color: var(--sotet); color: var(--sarga); }
+.filter-btn.cat-palyazat.active { background: var(--terrakotta); border-color: var(--terrakotta); color: #fff; }
+.filter-btn.cat-szamvitel.active { background: var(--zold); border-color: var(--zold); color: #fff; }
+.filter-btn.cat-szektorhir.active { background: var(--okker); border-color: var(--okker); color: var(--sotet); }
+.filter-btn.cat-hataridok.active { background: #dc2626; border-color: #dc2626; color: #fff; }
+
+/* ── MAIN LAYOUT ── */
+.main-wrap { max-width: 1240px; margin: 0 auto; padding: 32px 24px 80px; display: grid; grid-template-columns: 1fr 300px; gap: 40px; align-items: start; }
+
+/* ── NEWS GRID ── */
+.news-feed { display: flex; flex-direction: column; gap: 20px; }
+
+.news-article {
+  background: var(--feher); border: 1.5px solid rgba(44,36,21,.07);
+  border-radius: var(--radius-xl); overflow: hidden;
+  transition: transform .3s var(--ease-out), box-shadow .3s, border-color .3s;
+  display: flex; flex-direction: column;
+}
+.news-article:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: rgba(245,200,66,.2); }
+.news-article a.na-link { display: flex; gap: 0; flex: 1; text-decoration: none; color: inherit; }
+
+.na-thumb {
+  width: 200px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+  min-height: 160px;
+}
+.na-thumb-pattern { position: absolute; inset: 0; opacity: .12; background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%232C2415' fill-rule='evenodd'%3E%3Ccircle cx='4' cy='4' r='2'/%3E%3Ccircle cx='24' cy='24' r='2'/%3E%3C/g%3E%3C/svg%3E"); }
+.thumb-palyazat   { background: linear-gradient(135deg, var(--sarga) 0%, var(--okker) 100%); }
+.thumb-szamvitel  { background: linear-gradient(135deg, var(--zold) 0%, var(--zold-vilagos) 100%); }
+.thumb-szektorhir { background: linear-gradient(135deg, var(--terrakotta) 0%, #e08040 100%); }
+.thumb-hataridok  { background: linear-gradient(135deg, #dc2626 0%, #f87171 100%); }
+.na-thumb-icon { position: relative; z-index: 1; color: rgba(44,36,21,.3); }
+.na-thumb-icon svg { width: 48px; height: 48px; }
+.thumb-szamvitel .na-thumb-icon, .thumb-szektorhir .na-thumb-icon, .thumb-hataridok .na-thumb-icon { color: rgba(253,246,227,.35); }
+
+.na-body { padding: 24px 28px; flex: 1; display: flex; flex-direction: column; gap: 10px; }
+.na-meta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.na-cat {
+  font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 99px;
+}
+.cat-palyazat   { background: rgba(196,103,58,.12); color: var(--terrakotta); }
+.cat-szamvitel  { background: rgba(74,110,42,.12);  color: var(--zold); }
+.cat-szektorhir { background: rgba(212,168,85,.15); color: #7a5a20; }
+.cat-hataridok  { background: rgba(220,38,38,.1);   color: #b91c1c; }
+.na-date { font-size: 12px; color: var(--szurke-vilagos); font-weight: 500; }
+.na-urgency {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 11px; font-weight: 700; padding: 2px 9px; border-radius: 99px;
+  background: rgba(220,38,38,.1); color: #b91c1c; border: 1px solid rgba(220,38,38,.2);
+}
+.na-title { font-family: var(--font-cim); font-size: 19px; font-weight: 600; color: var(--sotet); line-height: 1.3; }
+.na-excerpt { font-size: 14px; color: var(--szurke); line-height: 1.7; flex: 1; }
+.na-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.na-tag { font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 99px; background: rgba(44,36,21,.05); color: var(--szurke); border: 1px solid rgba(44,36,21,.08); }
+.na-footer { display: flex; align-items: center; justify-content: space-between; padding: 12px 28px 20px; border-top: 1px solid rgba(44,36,21,.05); }
+.na-source { font-size: 12px; color: var(--szurke-vilagos); display: flex; align-items: center; gap: 6px; }
+.na-source a { color: var(--terrakotta); font-weight: 600; transition: color .2s; }
+.na-source a:hover { color: var(--terrakotta-sotet); }
+.na-read { font-size: 13px; font-weight: 600; color: var(--terrakotta); display: flex; align-items: center; gap: 5px; transition: gap .2s; }
+.na-read:hover { gap: 9px; }
+
+/* ── SIDEBAR ── */
+.sidebar { display: flex; flex-direction: column; gap: 20px; position: sticky; top: calc(var(--nav-h) + 20px); }
+.sidebar-card { background: var(--feher); border: 1.5px solid rgba(44,36,21,.07); border-radius: var(--radius-xl); padding: 24px; }
+.sidebar-title { font-family: var(--font-cim); font-size: 16px; font-weight: 700; color: var(--sotet); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+.sidebar-title svg { color: var(--terrakotta); }
+
+/* Határidő sáv */
+.hatarido-list { display: flex; flex-direction: column; gap: 12px; }
+.hd-item { padding: 10px 14px; border-radius: var(--radius-md); border-left: 3px solid; }
+.hd-piros  { background: rgba(220,38,38,.06);  border-color: #dc2626; }
+.hd-sarga  { background: rgba(245,200,66,.1);  border-color: var(--sarga); }
+.hd-zold   { background: rgba(74,110,42,.08);  border-color: var(--zold); }
+.hd-name   { font-size: 13px; font-weight: 600; color: var(--sotet); margin-bottom: 2px; }
+.hd-date   { font-size: 11px; font-weight: 600; }
+.hd-piros .hd-date  { color: #b91c1c; }
+.hd-sarga .hd-date  { color: #8a6d00; }
+.hd-zold  .hd-date  { color: var(--zold); }
+.hd-sub    { font-size: 11px; color: var(--szurke-vilagos); margin-top: 2px; }
+
+/* Kapcsolat sáv */
+.sb-contact-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; font-size: 13px; color: var(--szurke); }
+.sb-ci-icon { width: 30px; height: 30px; border-radius: var(--radius-sm); background: rgba(245,200,66,.1); border: 1px solid rgba(245,200,66,.2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #8a6d00; }
+.sb-ci-icon svg { width: 14px; height: 14px; }
+.sb-cta { width: 100%; padding: 12px; background: var(--terrakotta); color: #fff; border-radius: var(--radius-md); font-size: 14px; font-weight: 700; text-align: center; display: block; margin-top: 12px; transition: background .2s, transform .2s; }
+.sb-cta:hover { background: var(--terrakotta-sotet); transform: translateY(-1px); }
+
+/* ── EMPTY STATE ── */
+.empty-state { text-align: center; padding: 60px 24px; color: var(--szurke); }
+.empty-state-icon { font-size: 48px; margin-bottom: 16px; }
+
+/* ── REVEAL ── */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s var(--ease-out), transform .6s var(--ease-out); }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ── FOOTER ── */
+#footer { background: #1e1608; padding: 48px 24px 28px; }
+.footer-inner { max-width: 1240px; margin: 0 auto; }
+.footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 40px; border-bottom: 1px solid rgba(253,246,227,.06); }
+.footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+.footer-logo img { height: 34px; }
+.footer-logo-name { font-family: var(--font-cim); font-size: 16px; font-weight: 700; color: var(--sarga); }
+.footer-brand-desc { font-size: 13px; color: rgba(253,246,227,.35); line-height: 1.7; max-width: 250px; }
+.footer-col-title { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--sarga); margin-bottom: 14px; }
+.footer-col-links { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.footer-col-links a { font-size: 13px; color: rgba(253,246,227,.4); transition: color .2s; }
+.footer-col-links a:hover { color: rgba(253,246,227,.8); }
+.footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-top: 24px; }
+.footer-copy { font-size: 12px; color: rgba(253,246,227,.25); line-height: 1.6; }
+.footer-legal { display: flex; gap: 20px; }
+.footer-legal a { font-size: 12px; color: rgba(253,246,227,.25); transition: color .2s; }
+.footer-legal a:hover { color: rgba(253,246,227,.6); }
+
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border-width: 0; }
+:focus-visible { outline: 2.5px solid var(--sarga); outline-offset: 3px; border-radius: 4px; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .main-wrap { grid-template-columns: 1fr; }
+  .sidebar { position: static; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 28px; }
+  .footer-brand { grid-column: 1 / -1; }
+}
+@media (max-width: 768px) {
+  :root { --nav-h: 64px; }
+  .nav-links, .nav-cta { display: none; }
+  .nav-hamburger { display: flex; }
+  .na-thumb { width: 120px; min-height: 120px; }
+  .na-body { padding: 16px 18px; }
+  .na-title { font-size: 16px; }
+  .footer-top { grid-template-columns: 1fr; gap: 24px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 480px) {
+  .news-article a.na-link { flex-direction: column; }
+  .na-thumb { width: 100%; min-height: 100px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav" aria-label="Főnavigáció">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Civil Ház – főoldal">
+      <img src="Civil Ház Logo 2026.png" alt="Civil Ház logó" width="42" height="42">
+      <div style="display:flex;flex-direction:column;line-height:1.1;">
+        <span class="nav-logo-name">Civil Ház</span>
+        <span class="nav-logo-sub">Veszprém</span>
+      </div>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html#services">Szolgáltatások</a></li>
+      <li><a href="index.html#widget">Pályázati előszűrő</a></li>
+      <li><a href="aktualis.html" class="aktiv">Hírek</a></li>
+      <li><a href="rolunk.html">Rólunk</a></li>
+      <li><a href="index.html#contact">Kapcsolat</a></li>
+    </ul>
+    <a href="index.html#contact" class="nav-cta">
+      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Időpontot kérek
+    </a>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menü megnyitása" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav-mobile" id="mobile-nav" role="dialog" aria-label="Mobilmenü">
+  <a href="index.html#services">Szolgáltatások</a>
+  <a href="index.html#widget">Pályázati előszűrő</a>
+  <a href="aktualis.html" style="color:var(--terrakotta);font-weight:600;">Hírek</a>
+  <a href="rolunk.html">Rólunk</a>
+  <a href="index.html#contact">Kapcsolat</a>
+  <a href="index.html#contact" class="nav-cta">Időpontot kérek</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero" aria-labelledby="page-title">
+  <div class="phb phb-1" aria-hidden="true"></div>
+  <div class="phb phb-2" aria-hidden="true"></div>
+  <div class="page-hero-inner">
+    <div>
+      <div class="page-eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>Civil szektort érintő aktualitások</div>
+      <h1 class="page-title" id="page-title">Hírek &amp; <em>aktualitások</em></h1>
+      <p class="page-meta">Pályázati határidők · NEA · Norvég Alap · SZJA 1% · Határidők</p>
+    </div>
+    <div class="frissites-badge" aria-label="Utolsó frissítés dátuma">
+      <div class="fb-label">Utoljára frissítve</div>
+      <div class="fb-date" id="lastUpdated">—</div>
+      <div class="fb-note">Napi automatikus frissítés</div>
+    </div>
+  </div>
+</section>
+
+<!-- BREADCRUMB -->
+<nav class="breadcrumb" aria-label="Helymutató">
+  <a href="index.html">Főoldal</a>
+  <span class="breadcrumb-sep" aria-hidden="true">›</span>
+  <span aria-current="page">Hírek &amp; aktualitások</span>
+</nav>
+
+<!-- FILTER -->
+<div class="filter-wrap">
+  <div class="filter-bar" role="group" aria-label="Hírek szűrése kategória szerint">
+    <button class="filter-btn active" data-cat="all">Összes</button>
+    <button class="filter-btn cat-palyazat" data-cat="palyazat">Pályázat</button>
+    <button class="filter-btn cat-szamvitel" data-cat="szamvitel">Számvitel</button>
+    <button class="filter-btn cat-szektorhir" data-cat="szektorhir">Szektorhír</button>
+    <button class="filter-btn cat-hataridok" data-cat="hataridok">Sürgős határidő</button>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main-wrap">
+  <main id="news-feed" class="news-feed" aria-label="Hírek listája">
+
+    <!-- #1 – Norvég Civil Alap -->
+    <article id="norveg-2026" class="news-article reveal" data-cat="palyazat">
+      <a href="https://okotars.hu/hirek/2026-elejen-indul-norveg-civil-alap-uj-palyazati-ciklusa" target="_blank" rel="noopener noreferrer" class="na-link">
+        <div class="na-thumb thumb-palyazat">
+          <div class="na-thumb-pattern" aria-hidden="true"></div>
+          <div class="na-thumb-icon" aria-hidden="true">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          </div>
+        </div>
+        <div class="na-body">
+          <div class="na-meta">
+            <span class="na-cat cat-palyazat">Pályázat</span>
+            <span class="na-date">2026. január – 2026. május</span>
+          </div>
+          <h2 class="na-title">Norvég Civil Alap 2026 – Kapacitásfejlesztési és hálózatépítési pályázat</h2>
+          <p class="na-excerpt">Az Ökotárs Alapítvány által kezelt Norvég Civil Alap 2026-os kapacitásfejlesztési körében 50 000–100 000 EUR közötti, <strong>100%-os intenzitású</strong> (önrész nélküli) támogatás volt igényelhető. A program célja más civil szervezetek kapacitásfejlesztése – legalább 5 szervezet bevonásával. A 2026-os körben projektek 24–48 hónapig futhattak. Az új ciklus megnyitásáról azonnal tájékoztatjuk partnereinket.</p>
+          <div class="na-tags">
+            <span class="na-tag">Norvég Alap</span>
+            <span class="na-tag">50–100 ezer EUR</span>
+            <span class="na-tag">Önrész nélkül</span>
+            <span class="na-tag">Kapacitásfejlesztés</span>
+          </div>
+        </div>
+      </a>
+      <div class="na-footer">
+        <div class="na-source">Forrás: <a href="https://okotars.hu" target="_blank" rel="noopener">Ökotárs Alapítvány ↗</a></div>
+        <span class="na-read">Segítségre van szüksége? <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
+      </div>
+    </article>
+
+    <!-- #2 – NEA 2026 -->
+    <article id="nea-2026" class="news-article reveal" data-cat="palyazat">
+      <a href="https://bgazrt.hu/megjelentek-a-nemzeti-egyuttmukodesi-alap-2026-evi-osszevont-es-egyszerusitett-palyazati-kiirasai/" target="_blank" rel="noopener noreferrer" class="na-link">
+        <div class="na-thumb thumb-palyazat">
+          <div class="na-thumb-pattern" aria-hidden="true"></div>
+          <div class="na-thumb-icon" aria-hidden="true">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          </div>
+        </div>
+        <div class="na-body">
+          <div class="na-meta">
+            <span class="na-cat cat-palyazat">Pályázat</span>
+            <span class="na-date">2025. október – 2026. döntések várhatók</span>
+          </div>
+          <h2 class="na-title">NEA 2026 – NEAG és NEAO összevont és egyszerűsített pályázatok</h2>
+          <p class="na-excerpt">A Bethlen Gábor Alapkezelő Zrt. meghirdette a Nemzeti Együttműködési Alap (NEA) 2026. évi pályázatait. Az <strong>egyszerűsített NEAG-KP-1-2026</strong> fordulóban helyi és területi hatókörű civil szervezetek igényelhettek támogatást, az összevont <strong>NEAO-KP-1-2026</strong> kategóriában pedig a közösségi környezet kollégium keretein belül lehetett pályázni. A beadási határidők lezárultak, a döntések 2026 első félévében várhatók.</p>
+          <div class="na-tags">
+            <span class="na-tag">NEA</span>
+            <span class="na-tag">NEAG</span>
+            <span class="na-tag">NEAO</span>
+            <span class="na-tag">Döntés várható</span>
+          </div>
+        </div>
+      </a>
+      <div class="na-footer">
+        <div class="na-source">Forrás: <a href="https://bgazrt.hu" target="_blank" rel="noopener">Bethlen Gábor Alapkezelő Zrt. ↗</a></div>
+        <span class="na-read">Segítségre van szüksége? <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
+      </div>
+    </article>
+
+    <!-- #3 – SZJA 1% -->
+    <article id="szja-2026" class="news-article reveal" data-cat="szamvitel">
+      <a href="https://nav.gov.hu/ado/szja1_1/felajanlasra-jogosultak/regisztralt_civil" target="_blank" rel="noopener noreferrer" class="na-link">
+        <div class="na-thumb thumb-szamvitel">
+          <div class="na-thumb-pattern" aria-hidden="true"></div>
+          <div class="na-thumb-icon" aria-hidden="true">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+          </div>
+        </div>
+        <div class="na-body">
+          <div class="na-meta">
+            <span class="na-cat cat-szamvitel">Számvitel</span>
+            <span class="na-date">2026. május 20. volt a felajánlási határidő</span>
+          </div>
+          <h2 class="na-title">SZJA 1% 2026 – Felajánlások feldolgozása, NAV ellenőrzések menetrendje</h2>
+          <p class="na-excerpt">A 2025-ös adóévre vonatkozó SZJA 1%-os felajánlások benyújtási határideje 2026. május 20. volt. Az ezt követő időszakban a NAV ellenőrzi a jogosultságot, és feldolgozza a felajánlásokat. Civil szervezeteknek figyelniük kell a felhasználási korlátokra és a kötelező közzétételekre. A <strong>25EGYREG adatlap</strong> benyújtásának elmulasztása esetén a szervezet nem részesülhet 2027-es felajánlásokban.</p>
+          <div class="na-tags">
+            <span class="na-tag">SZJA 1%</span>
+            <span class="na-tag">NAV</span>
+            <span class="na-tag">Felhasználás</span>
+            <span class="na-tag">Közzététel</span>
+          </div>
+        </div>
+      </a>
+      <div class="na-footer">
+        <div class="na-source">Forrás: <a href="https://nav.gov.hu" target="_blank" rel="noopener">NAV ↗</a></div>
+        <span class="na-read">Kérdése van? <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
+      </div>
+    </article>
+
+    <!-- #4 – Falusi Civil Alap -->
+    <article id="fca-2026" class="news-article reveal" data-cat="palyazat">
+      <a href="https://bgazrt.hu/uj-felhivas-a-2026-evi-magyar-falu-program-falusi-civil-alap-kereteben/" target="_blank" rel="noopener noreferrer" class="na-link">
+        <div class="na-thumb thumb-szektorhir">
+          <div class="na-thumb-pattern" aria-hidden="true"></div>
+          <div class="na-thumb-icon" aria-hidden="true">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+        </div>
+        <div class="na-body">
+          <div class="na-meta">
+            <span class="na-cat cat-palyazat">Pályázat</span>
+            <span class="na-date">2026. január 21. – február 20. · döntések várhatók</span>
+          </div>
+          <h2 class="na-title">Magyar Falu Program – Falusi Civil Alap (FCA) 2026 – 5 milliárd Ft-os keret</h2>
+          <p class="na-excerpt">Az Agrárminisztérium 2026. január 21-én meghirdette a Magyar Falu Program Falusi Civil Alap keretében a „Civil közösségi tevékenységek és feltételeinek 2026. évi támogatása" pályázatot (FCA-KP-1-2026). A <strong>teljes keret 5 milliárd forint</strong>. Pályázhattak azok az egyesületek és alapítványok, amelyek székhelye 5 000 főt meg nem haladó magyarországi településen van. A döntések 2026 második negyedévében várhatók.</p>
+          <div class="na-tags">
+            <span class="na-tag">FCA</span>
+            <span class="na-tag">Magyar Falu Program</span>
+            <span class="na-tag">5 Mrd Ft</span>
+            <span class="na-tag">Kistelepülés</span>
+          </div>
+        </div>
+      </a>
+      <div class="na-footer">
+        <div class="na-source">Forrás: <a href="https://bgazrt.hu" target="_blank" rel="noopener">BGA Zrt. ↗</a> · <a href="https://www.nak.hu" target="_blank" rel="noopener">NAK ↗</a></div>
+        <span class="na-read">Segítségre van szüksége? <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
+      </div>
+    </article>
+
+    <!-- #5 – VCA Városi Civil Alap -->
+    <article id="vca-2026" class="news-article reveal" data-cat="palyazat">
+      <a href="https://www.nonprofit.hu/palyazatok/Civil-kozossegi-tevekenysegek-es-felteteleinek-2026-evi-tamogatasa--VCA-KP-1-2026" target="_blank" rel="noopener noreferrer" class="na-link">
+        <div class="na-thumb thumb-palyazat">
+          <div class="na-thumb-pattern" aria-hidden="true"></div>
+          <div class="na-thumb-icon" aria-hidden="true">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          </div>
+        </div>
+        <div class="na-body">
+          <div class="na-meta">
+            <span class="na-cat cat-palyazat">Pályázat</span>
+            <span class="na-date">2026 · VCA-KP-1-2026</span>
+          </div>
+          <h2 class="na-title">Városi Civil Alap (VCA) 2026 – 5 000 főnél nagyobb városok civil szervezeteinek</h2>
+          <p class="na-excerpt">A Városi Civil Alap (VCA-KP-1-2026) az 5 000 főnél nagyobb lélekszámú városokban székhellyel rendelkező civil szervezeteknek biztosít lehetőséget ugyanolyan típusú célok megvalósítására, amelyekre a Falusi Civil Alap keretén belül is pályázni lehet. A pályázatról és az aktuális határidőkről személyes konzultáción adunk részletes tájékoztatást.</p>
+          <div class="na-tags">
+            <span class="na-tag">VCA</span>
+            <span class="na-tag">Városi szervezetek</span>
+            <span class="na-tag">Közösségi tevékenység</span>
+          </div>
+        </div>
+      </a>
+      <div class="na-footer">
+        <div class="na-source">Forrás: <a href="https://www.nonprofit.hu" target="_blank" rel="noopener">nonprofit.hu ↗</a></div>
+        <span class="na-read">Egyéni konzultáció <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
+      </div>
+    </article>
+
+    <!-- #6 – Pro Filii -->
+    <article id="profilii-2026" class="news-article reveal" data-cat="palyazat">
+      <a href="https://profilii.hu/palyazati-kiiras/" target="_blank" rel="noopener noreferrer" class="na-link">
+        <div class="na-thumb thumb-szektorhir">
+          <div class="na-thumb-pattern" aria-hidden="true"></div>
+          <div class="na-thumb-icon" aria-hidden="true">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+          </div>
+        </div>
+        <div class="na-body">
+          <div class="na-meta">
+            <span class="na-cat cat-szektorhir">Szektorhír</span>
+            <span class="na-date">2026. július 1-től – Pro Filii Q3</span>
+          </div>
+          <h2 class="na-title">Pro Filii Alapítvány – Új negyedéves pályázati kör nyílik júliustól</h2>
+          <p class="na-excerpt">A Pro Filii Alapítvány 2026. július 1-jétől új negyedéves pályázati kört nyit civil és nonprofit szervezetek, valamint magánszemélyek számára. A pályázat közösségi célokat szolgáló, közérdekű vagy humánus okokból megvalósítandó tevékenységeket támogat. Az alapítvány rendszeres adományozóinak lehetősége van folyamatosan pályázni.</p>
+          <div class="na-tags">
+            <span class="na-tag">Pro Filii</span>
+            <span class="na-tag">Negyedéves kör</span>
+            <span class="na-tag">Közösségi cél</span>
+          </div>
+        </div>
+      </a>
+      <div class="na-footer">
+        <div class="na-source">Forrás: <a href="https://profilii.hu" target="_blank" rel="noopener">Pro Filii Alapítvány ↗</a></div>
+        <span class="na-read">Bővebb információ <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
+      </div>
+    </article>
+
+    <!-- ÜRES ÁLLAPOT (rejtett) -->
+    <div class="empty-state" id="emptyState" style="display:none;" role="status">
+      <div class="empty-state-icon" aria-hidden="true">🔍</div>
+      <p>Ebben a kategóriában jelenleg nincsenek hírek.</p>
+    </div>
+
+  </main>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" aria-label="Oldalsáv">
+
+    <!-- Közelgő határidők -->
+    <div class="sidebar-card reveal">
+      <div class="sidebar-title">
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Közelgő határidők
+      </div>
+      <div class="hatarido-list">
+        <div class="hd-item hd-zold">
+          <div class="hd-name">Pro Filii Q3 nyitás</div>
+          <div class="hd-date">2026. július 1.</div>
+          <div class="hd-sub">Negyedéves civil pályázat</div>
+        </div>
+        <div class="hd-item hd-sarga">
+          <div class="hd-name">NEA 2026 döntések</div>
+          <div class="hd-date">2026. első félév</div>
+          <div class="hd-sub">NEAG / NEAO eredmények</div>
+        </div>
+        <div class="hd-item hd-sarga">
+          <div class="hd-name">FCA döntések</div>
+          <div class="hd-date">2026. Q2</div>
+          <div class="hd-sub">Magyar Falu Program eredmény</div>
+        </div>
+        <div class="hd-item hd-zold">
+          <div class="hd-name">Norvég Civil Alap – új kör</div>
+          <div class="hd-date">Megnyitás tájékoztatjuk</div>
+          <div class="hd-sub">Figyelje híreink!</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Segítség kérhető -->
+    <div class="sidebar-card reveal">
+      <div class="sidebar-title">
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+        Segítségre van szüksége?
+      </div>
+      <div class="sb-contact-item">
+        <div class="sb-ci-icon"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg></div>
+        <span>Hívjon minket bármely pályázati kérdéssel: <strong><a href="tel:+3688401110" style="color:var(--terrakotta);">88/401-110</a></strong></span>
+      </div>
+      <div class="sb-contact-item">
+        <div class="sb-ci-icon"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>
+        <span><a href="mailto:civilhaz@vpmegye.hu" style="color:var(--terrakotta);">civilhaz@vpmegye.hu</a></span>
+      </div>
+      <a href="index.html#contact" class="sb-cta">Időpontot kérek →</a>
+    </div>
+
+    <!-- Pályázati előszűrő -->
+    <div class="sidebar-card reveal" style="background:var(--sotet);border-color:rgba(245,200,66,.15);">
+      <div class="sidebar-title" style="color:var(--sarga);">
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        Pályázati előszűrő
+      </div>
+      <p style="font-size:13px;color:rgba(253,246,227,.55);line-height:1.6;margin-bottom:14px;">Percek alatt megtudja, hogy szervezete jogosult-e a kiszemelt pályázatra.</p>
+      <a href="index.html#widget" style="display:block;width:100%;padding:12px;background:var(--sarga);color:var(--sotet);border-radius:var(--radius-md);font-size:14px;font-weight:700;text-align:center;transition:background .2s;">Előszűrő indítása →</a>
+    </div>
+
+  </aside>
+</div>
+
+<!-- FOOTER -->
+<footer id="footer" aria-label="Lábléc">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="Civil Ház Logo 2026.png" alt="Civil Ház logó" width="34" height="34">
+          <span class="footer-logo-name">Civil Ház</span>
+        </div>
+        <p class="footer-brand-desc">Veszprém Megyei Civil Hálózatért Közhasznú Egyesület – civil szervezetek tanácsadása, fejlesztése és pályázatírása.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Civil Ház</div>
+        <ul class="footer-col-links" role="list">
+          <li><a href="rolunk.html">Rólunk</a></li>
+          <li><a href="index.html#contact">Kapcsolat</a></li>
+          <li><a href="aktualis.html">Hírek</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Szolgáltatások</div>
+        <ul class="footer-col-links" role="list">
+          <li><a href="index.html#services">Pályázatírás</a></li>
+          <li><a href="index.html#services">Jogi tanácsadás</a></li>
+          <li><a href="index.html#services">Szervezetfejlesztés</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Eszközök</div>
+        <ul class="footer-col-links" role="list">
+          <li><a href="index.html#widget">Pályázati előszűrő</a></li>
+          <li><a href="#">ÁSZF</a></li>
+          <li><a href="#">Adatkezelés</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Civil Ház · 8200 Veszprém, Kossuth u. 10. · civilhaz@vpmegye.hu · 88/401-110</div>
+      <div class="footer-legal">
+        <a href="#">Adatvédelem</a>
+        <a href="#">ÁSZF</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* Nav scroll */
+(function(){
+  var nav=document.getElementById('nav');
+  function u(){nav.classList.toggle('scrolled',window.scrollY>40);}
+  window.addEventListener('scroll',u,{passive:true});u();
+})();
+
+/* Hamburger */
+(function(){
+  var btn=document.getElementById('hamburger'),menu=document.getElementById('mobile-nav');
+  function close(){btn.classList.remove('open');menu.classList.remove('open');btn.setAttribute('aria-expanded','false');}
+  btn.addEventListener('click',function(){var o=menu.classList.toggle('open');btn.classList.toggle('open',o);btn.setAttribute('aria-expanded',o?'true':'false');});
+  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close);});
+  document.addEventListener('click',function(e){if(!nav.contains(e.target)&&!menu.contains(e.target))close();});
+})();
+
+/* Scroll reveal */
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){els.forEach(function(el){el.classList.add('visible');});return;}
+  var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
+  els.forEach(function(el){obs.observe(el);});
+})();
+
+/* Frissítés dátuma */
+(function(){
+  var el=document.getElementById('lastUpdated');
+  if(!el) return;
+  var d=new Date();
+  var hu=['január','február','március','április','május','június','július','augusztus','szeptember','október','november','december'];
+  el.textContent=d.getFullYear()+'. '+hu[d.getMonth()]+' '+d.getDate()+'.';
+})();
+
+/* Kategória szűrő */
+(function(){
+  var btns=document.querySelectorAll('.filter-btn');
+  var articles=document.querySelectorAll('.news-article');
+  var empty=document.getElementById('emptyState');
+  btns.forEach(function(btn){
+    btn.addEventListener('click',function(){
+      btns.forEach(function(b){b.classList.remove('active');});
+      btn.classList.add('active');
+      var cat=btn.dataset.cat;
+      var visible=0;
+      articles.forEach(function(art){
+        var show=(cat==='all'||art.dataset.cat===cat);
+        art.style.display=show?'':'none';
+        if(show) visible++;
+      });
+      if(empty) empty.style.display=visible===0?'block':'none';
+    });
+  });
+})();
+</script>
+</body>
+</html>
