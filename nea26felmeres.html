@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NEA-támogatások – Felmérési felhívás | Veszprémi Civil Ház</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: #f8f4ef;
+      font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+      color: #2c2c2c;
+      padding: 24px 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrapper {
+      max-width: 660px;
+      margin: 0 auto;
+      border: 1px solid #e4ddd4;
+      background-color: #fdfaf6;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      background-color: #3b6b52;
+      padding: 32px 48px 28px;
+      text-align: center;
+    }
+
+    .header-logo {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 3px solid rgba(201,169,110,0.55);
+      display: block;
+      margin: 0 auto 20px;
+    }
+
+    .header-frame {
+      border-top: 1px solid rgba(201,169,110,0.45);
+      border-bottom: 1px solid rgba(201,169,110,0.45);
+      padding: 14px 0 12px;
+      margin-bottom: 14px;
+    }
+
+    .header-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 0.3px;
+      line-height: 1.3;
+    }
+
+    .header-subtitle {
+      font-size: 11px;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .header-meta {
+      font-size: 11.5px;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 14px;
+      letter-spacing: 0.3px;
+    }
+
+    .header-divider {
+      width: 48px;
+      height: 1px;
+      background-color: rgba(201,169,110,0.45);
+      margin: 0 auto 12px;
+    }
+
+    .header-motto {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-size: 13px;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 6px;
+    }
+
+    .header-tagline {
+      font-size: 11px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+
+    .header-web {
+      font-size: 11.5px;
+      color: #a8d4b8;
+      text-decoration: none;
+    }
+
+    .header-web:visited {
+      color: #a8d4b8;
+    }
+
+    /* ── ARANY VONAL ── */
+    .gold-line {
+      height: 3px;
+      background-color: #c9a96e;
+    }
+
+    /* ── ALERT SÁV ── */
+    .alert-strip {
+      background-color: #f7ede8;
+      border-bottom: 1px solid #e8c4b6;
+      padding: 13px 48px;
+    }
+
+    .alert-strip p {
+      color: #7a3c26;
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    .alert-strip span.alert-icon {
+      margin-right: 6px;
+    }
+
+    /* ── BODY ── */
+    .body {
+      padding: 36px 48px;
+      background-color: #fdfaf6;
+    }
+
+    /* ── SZEKCIÓ LABEL ── */
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .section-label-line {
+      flex: 1;
+      height: 1px;
+      background-color: #e4ddd4;
+    }
+
+    .section-label-text {
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      white-space: nowrap;
+      color: #b5674a;
+    }
+
+    /* ── KÁRTYA ── */
+    .card {
+      border-left: 3px solid #b5674a;
+      background-color: #fffcfb;
+      padding: 20px 22px;
+      margin-bottom: 20px;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .card-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: #2c2c2c;
+      line-height: 1.35;
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 3px;
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      white-space: nowrap;
+    }
+
+    .tag-terra {
+      background-color: #f7ede8;
+      color: #7a3c26;
+    }
+
+    .tag-muted {
+      background-color: #f0f0f0;
+      color: #666666;
+    }
+
+    .card-body {
+      font-size: 13.5px;
+      color: #4a4a4a;
+      line-height: 1.7;
+    }
+
+    .card-body p {
+      margin-bottom: 10px;
+    }
+
+    .card-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ── CTA GOMB ── */
+    .cta-block {
+      text-align: center;
+      margin: 24px 0 8px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-image: linear-gradient(135deg, #f4c843, #c3683a);
+      background-color: #c3683a;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 13px 30px;
+      letter-spacing: 0.4px;
+      border-radius: 15px;
+    }
+
+    .cta-button:hover {
+      background-image: linear-gradient(135deg, #e5b93a, #b05830);
+      background-color: #b05830;
+    }
+
+    .cta-hint {
+      font-size: 11.5px;
+      color: #7a7a7a;
+      margin-top: 8px;
+      text-align: center;
+    }
+
+    /* ── ALÁÍRÁS ── */
+    .signature-block {
+      margin-top: 24px;
+      padding-top: 18px;
+      border-top: 1px solid #ede8e1;
+      font-size: 13px;
+      color: #4a4a4a;
+      line-height: 1.65;
+    }
+
+    .signature-name {
+      font-weight: 600;
+      color: #2c2c2c;
+      font-size: 14px;
+    }
+
+    .signature-org {
+      color: #3b6b52;
+      font-size: 12.5px;
+    }
+
+    /* ── ÖSSZEFOGLALÓ ── */
+    .summary-box {
+      background-color: #f2f8f4;
+      border: 1px solid #c4dccb;
+      padding: 20px 24px;
+      margin-top: 28px;
+    }
+
+    .summary-label {
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: #5a8f72;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .summary-body {
+      font-size: 13px;
+      color: #4a4a4a;
+      line-height: 1.65;
+    }
+
+    .summary-body ul {
+      padding-left: 18px;
+      margin-top: 6px;
+    }
+
+    .summary-body ul li {
+      margin-bottom: 5px;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      background-color: #2a4f3c;
+      padding: 36px 48px;
+      text-align: center;
+    }
+
+    .footer-name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .footer-sub {
+      font-size: 12px;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 16px;
+    }
+
+    .footer-divider {
+      width: 48px;
+      height: 1px;
+      background-color: #c9a96e;
+      margin: 0 auto 16px;
+    }
+
+    .footer-motto {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-size: 13.5px;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 8px;
+    }
+
+    .footer-tagline {
+      font-size: 12.5px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.55;
+      margin-bottom: 16px;
+    }
+
+    .footer-web {
+      color: #a8d4b8;
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    .footer-web:visited {
+      color: #a8d4b8;
+    }
+
+    .footer-phone {
+      font-size: 12.5px;
+      color: rgba(255,255,255,0.6);
+      margin-top: 6px;
+    }
+
+    /* ── RESZPONZÍV ── */
+    @media (max-width: 580px) {
+      .body, .footer, .header { padding-left: 20px !important; padding-right: 20px !important; }
+      .alert-strip { padding-left: 20px !important; padding-right: 20px !important; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <div class="header">
+    <a href="https://www.civilhaz.hu">
+      <img class="header-logo"
+           src="http://cicveszprem.hu/wp-content/uploads/2025/11/kor-logo-e1762763671572.png"
+           alt="Veszprémi Civil Ház logó" />
+    </a>
+    <div class="header-frame">
+      <a href="https://www.civilhaz.hu" style="text-decoration: none;">
+        <div class="header-title">Veszprémi Civil Ház</div>
+      </a>
+      <div class="header-subtitle">Veszprémi Civil Központ</div>
+    </div>
+    <div class="header-meta">Magyar civil és nonprofit szektor &nbsp;·&nbsp; 2026-06-10, szerda</div>
+    <div class="header-divider"></div>
+    <div class="header-motto">„Ötletekből működő közösségeket!"</div>
+    <div class="header-tagline">Egyesület alapítás, pályázatok, jogi és pénzügyi háttér, szervezetfejlesztés!</div>
+    <a href="https://www.civilhaz.hu" class="header-web">www.civilhaz.hu</a>
+    <br />
+    <a href="https://www.veszpremicivil.hu" class="header-web">www.veszpremicivil.hu</a>
+  </div>
+
+  <!-- ARANY VONAL -->
+  <div class="gold-line"></div>
+
+  <!-- ALERT SÁV -->
+  <div class="alert-strip">
+    <p><span class="alert-icon">⚠</span> <strong>Fontos felhívás:</strong> A 2026. évi NEA-támogatások kifizetése késik – kérjük, töltsd ki a felmérést, ha szervezetedet érinti!</p>
+  </div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- SZEKCIÓ LABEL -->
+    <div class="section-label">
+      <div class="section-label-line"></div>
+      <div class="section-label-text">Felhívás &amp; Felmérés</div>
+      <div class="section-label-line"></div>
+    </div>
+
+    <!-- KÁRTYA: fő tartalom -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">NEA 2026 – Késő kifizetések felmérése</div>
+        <span class="tag tag-terra">Sürgős</span>
+        <span class="tag tag-muted">2026. június</span>
+      </div>
+      <div class="card-body">
+        <p>Kedves Civil Szervezetek!</p>
+        <p>Az elmúlt időszakban számos megkeresés érkezett hozzánk azzal kapcsolatban, hogy <strong>mikor várható a 2026. évi NEA-támogatások kifizetése</strong>. Sajnos jelenleg mi sem rendelkezünk pontos információval a támogatások folyósításának időpontjáról.</p>
+        <p>Szeretnénk azonban felmérni, hogy hány olyan szervezet érintett, amely <strong>még nem kapta meg a megítélt támogatási összeget</strong>, és emiatt veszélybe került vagy bizonytalanná vált a pályázatban vállalt program, rendezvény, tábor vagy akár a szervezet működésének biztosítása.</p>
+        <p>Arra kérünk Benneteket, hogy az alábbi rövid kérdőív kitöltésével segítsétek munkánkat. Az összegyűjtött információk alapján szeretnénk <strong>hiteles képet adni a kialakult helyzetről</strong>, és az érintett szervezetek jelzéseit eljuttatni a döntéshozók felé.</p>
+        <p>Minden kitöltés számít – minél több visszajelzés érkezik, annál pontosabban tudjuk bemutatni a probléma valódi mértékét.</p>
+
+        <!-- CTA GOMB -->
+        <div class="cta-block">
+          <a href="https://forms.gle/nTpMZ4FEZeF2gjjC6" class="cta-button">Kérdőív kitöltése ↗</a>
+        </div>
+        <p class="cta-hint">Közvetlen link: <a href="https://forms.gle/nTpMZ4FEZeF2gjjC6" style="color: #b5674a;">https://forms.gle/nTpMZ4FEZeF2gjjC6</a></p>
+
+        <!-- ALÁÍRÁS -->
+        <div class="signature-block">
+          <p>Köszönjük az együttműködéseteket és a segítségeteket!</p>
+          <p style="margin-top: 12px;">Üdvözlettel:</p>
+          <p class="signature-name">Óhegyi Tamás</p>
+          <p class="signature-org">Veszprémi Civil Ház</p>
+          <p class="signature-org">Veszprém Vármegyei Civil Közösségi Szolgáltató Központ</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ÖSSZEFOGLALÓ -->
+    <div class="summary-box">
+      <div class="summary-label">Mire figyelj most</div>
+      <div class="summary-body">
+        <p>Ha szervezetedet érinti a NEA 2026 kifizetési késedelem, kérjük:</p>
+        <ul>
+          <li>Töltsd ki a felmérési kérdőívet (a link fent található)</li>
+          <li>Jelezd, ha veszélybe kerültek a pályázatban vállalt programok, rendezvények, táborok</li>
+          <li>Oszd meg a felhívást más érintett szervezetekkel is</li>
+        </ul>
+        <p style="margin-top: 10px;">A beérkező jelzéseket eljuttatjuk a döntéshozók felé – <strong>minden visszajelzés számít!</strong></p>
+      </div>
+    </div>
+
+  </div><!-- /body -->
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-name">Veszprémi Civil Ház</div>
+    <div class="footer-sub">Veszprémi Civil Központ</div>
+    <div class="footer-divider"></div>
+    <div class="footer-motto">„Ötletekből működő közösségeket!"</div>
+    <div class="footer-tagline">Egyesület alapítás, pályázatok, jogi és pénzügyi háttér, szervezetfejlesztés!</div>
+    <a href="https://www.civilhaz.hu" class="footer-web">www.civilhaz.hu</a>
+    <br />
+    <a href="https://www.veszpremicivil.hu" class="footer-web">www.veszpremicivil.hu</a>
+    <div class="footer-phone">☎ 88/401-110</div>
+  </div>
+
+</div><!-- /wrapper -->
+
+</body>
+</html>
