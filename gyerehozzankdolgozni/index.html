@@ -340,7 +340,11 @@ header.nav.scrolled{
   display:grid; place-items:center; box-shadow:0 50px 90px -50px rgba(0,0,0,.9);
 }
 .portrait .initials{font-family:var(--serif); font-size:clamp(4rem,10vw,7rem); color:rgba(201,162,75,.4); font-weight:500}
-.portrait .ph-note{position:absolute; bottom:16px; left:16px; right:16px; font-size:.68rem; color:var(--muted-2);
+.portrait img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 22%; display:block}
+.portrait::after{content:""; position:absolute; inset:0; pointer-events:none; border-radius:inherit;
+  background:linear-gradient(180deg, rgba(11,14,20,0) 52%, rgba(11,14,20,.6) 100%);
+  box-shadow:inset 0 0 0 1px rgba(201,162,75,.16)}
+.portrait .ph-note{position:absolute; bottom:16px; left:16px; right:16px; font-size:.68rem; color:var(--muted-2); z-index:2;
   text-align:center; letter-spacing:.04em; background:rgba(8,10,15,.5); border:1px dashed var(--line); padding:7px; border-radius:8px}
 .about-badge{position:absolute; bottom:-22px; right:-14px; padding:16px 20px; border-radius:16px;
   background:linear-gradient(160deg,var(--surface-3),var(--surface)); border:1px solid var(--line-strong);
@@ -688,8 +692,7 @@ footer{border-top:1px solid var(--line); padding:70px 0 40px; margin-top:20px; p
   <div class="wrap about-grid">
     <div class="portrait-wrap reveal">
       <div class="portrait">
-        <div class="initials">FA</div>
-        <div class="ph-note">Ide kerül Ferenczy Attila portréfotója — cseréld le a képet a végleges fotóra.</div>
+        <img src="ferenczy-attila.jpg" alt="Ferenczy Attila — biztosítási szakmai vezető, Veszprém" loading="lazy">
       </div>
       <div class="about-badge">
         <div class="g">GP Consulting Kft.</div>
