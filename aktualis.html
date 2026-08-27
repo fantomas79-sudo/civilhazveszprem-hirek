@@ -9,6 +9,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- Google Analytics 4 -->
+<script src="analytics.js" defer></script>
+<script src="cookie-consent.js" defer></script>
 
 <style>
 :root {
@@ -304,8 +307,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     <ul class="nav-links" role="list">
       <li><a href="index.html#services">Szolgáltatások</a></li>
       <li><a href="index.html#widget">Pályázati előszűrő</a></li>
+      <li><a href="tudastar.html">Tudástár</a></li>
       <li><a href="aktualis.html" class="aktiv">Hírek</a></li>
       <li><a href="rolunk.html">Rólunk</a></li>
+      <li><a href="naptar.html" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Rendezvénynaptár</a></li>
       <li><a href="index.html#contact">Kapcsolat</a></li>
     </ul>
     <a href="index.html#contact" class="nav-cta">
@@ -320,6 +325,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 <div class="nav-mobile" id="mobile-nav" role="dialog" aria-label="Mobilmenü">
   <a href="index.html#services">Szolgáltatások</a>
   <a href="index.html#widget">Pályázati előszűrő</a>
+  <a href="tudastar.html">Tudástár</a>
   <a href="aktualis.html" style="color:var(--terrakotta);font-weight:600;">Hírek</a>
   <a href="rolunk.html">Rólunk</a>
   <a href="index.html#contact">Kapcsolat</a>
@@ -366,57 +372,60 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 <div class="main-wrap">
   <main id="news-feed" class="news-feed" aria-label="Hírek listája">
 
-    <!-- #1 – Norvég Civil Alap -->
-    <article id="norveg-2026" class="news-article reveal" data-cat="palyazat">
-      <a href="https://okotars.hu/hirek/2026-elejen-indul-norveg-civil-alap-uj-palyazati-ciklusa" target="_blank" rel="noopener noreferrer" class="na-link">
-        <div class="na-thumb thumb-palyazat">
+    <!-- ═══════════ KÉZI HÍREK — a feltoltes.html tölti fel; a napi bot ezt NEM írja felül ═══════════ -->
+    <!-- KEZI-HIREK-START -->
+    <article id="ingyenes-palyazatiro-workshop-a-civil-hazb-mszxpz3a" class="news-article reveal" data-cat="szektorhir">
+      <a href="https://www.civilhaz.hu/aktualis.html" target="_blank" rel="noopener noreferrer" class="na-link">
+        <div class="na-thumb thumb-szektorhir">
           <div class="na-thumb-pattern" aria-hidden="true"></div>
-          <div class="na-thumb-icon" aria-hidden="true">
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          </div>
+          <div class="na-thumb-icon" aria-hidden="true"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg></div>
         </div>
         <div class="na-body">
           <div class="na-meta">
-            <span class="na-cat cat-palyazat">Pályázat</span>
-            <span class="na-date">2026. január – 2026. május</span>
+            <span class="na-cat cat-szektorhir">Szektorhír</span>
+            <span class="na-date">2026. szeptember 12.</span>
           </div>
-          <h2 class="na-title">Norvég Civil Alap 2026 – Kapacitásfejlesztési és hálózatépítési pályázat</h2>
-          <p class="na-excerpt">Az Ökotárs Alapítvány által kezelt Norvég Civil Alap 2026-os kapacitásfejlesztési körében 50 000–100 000 EUR közötti, <strong>100%-os intenzitású</strong> (önrész nélküli) támogatás volt igényelhető. A program célja más civil szervezetek kapacitásfejlesztése – legalább 5 szervezet bevonásával. A 2026-os körben projektek 24–48 hónapig futhattak. Az új ciklus megnyitásáról azonnal tájékoztatjuk partnereinket.</p>
+          <h2 class="na-title">Ingyenes pályázatíró workshop a Civil Házban</h2>
+          <p class="na-excerpt">A Civil Ház <strong>ingyenes workshopot</strong> tart veszprémi civil szervezeteknek a NEA 2027-es pályázati körre való felkészülésről.</p>
+          <p class="na-excerpt">A résztvevők gyakorlati példákon keresztül ismerhetik meg a beadás menetét. Előzetes regisztráció szükséges.</p>
           <div class="na-tags">
-            <span class="na-tag">Norvég Alap</span>
-            <span class="na-tag">50–100 ezer EUR</span>
-            <span class="na-tag">Önrész nélkül</span>
-            <span class="na-tag">Kapacitásfejlesztés</span>
+            <span class="na-tag">NEA</span>
+            <span class="na-tag">Workshop</span>
+            <span class="na-tag">Ingyenes</span>
           </div>
         </div>
       </a>
       <div class="na-footer">
-        <div class="na-source">Forrás: <a href="https://okotars.hu" target="_blank" rel="noopener">Ökotárs Alapítvány ↗</a></div>
-        <span class="na-read">Segítségre van szüksége? <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
+        <div class="na-source">Forrás: <a href="https://www.civilhaz.hu/aktualis.html" target="_blank" rel="noopener">Civil Ház Veszprém ↗</a></div>
+        <span class="na-read">Segítségre van szüksége? →</span>
       </div>
     </article>
+    <!-- KEZI-HIREK-END -->
 
-    <!-- #2 – NEA 2026 -->
-    <article id="nea-2026" class="news-article reveal" data-cat="palyazat">
+    <!-- ═══════════ AUTOMATIKUS HÍREK — a napi hírfrissítő bot tartja karban (csak ezt cseréli le) ═══════════ -->
+    <!-- BOT-HIREK-START -->
+
+    <!-- #1 – NEA 2026 – kifizetés-előkészítés folyamatban -->
+    <article id="nea-2026" class="news-article reveal" data-cat="hataridok">
       <a href="https://bgazrt.hu/megjelentek-a-nemzeti-egyuttmukodesi-alap-2026-evi-osszevont-es-egyszerusitett-palyazati-kiirasai/" target="_blank" rel="noopener noreferrer" class="na-link">
-        <div class="na-thumb thumb-palyazat">
+        <div class="na-thumb thumb-hataridok">
           <div class="na-thumb-pattern" aria-hidden="true"></div>
           <div class="na-thumb-icon" aria-hidden="true">
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
           </div>
         </div>
         <div class="na-body">
           <div class="na-meta">
-            <span class="na-cat cat-palyazat">Pályázat</span>
-            <span class="na-date">2025. október – 2026. döntések várhatók</span>
+            <span class="na-cat cat-hataridok">Sürgős határidő</span>
+            <span class="na-date">Nyerteseknek: banki felhatalmazó levél mielőbb beküldendő</span>
           </div>
-          <h2 class="na-title">NEA 2026 – NEAG és NEAO összevont és egyszerűsített pályázatok</h2>
-          <p class="na-excerpt">A Bethlen Gábor Alapkezelő Zrt. meghirdette a Nemzeti Együttműködési Alap (NEA) 2026. évi pályázatait. Az <strong>egyszerűsített NEAG-KP-1-2026</strong> fordulóban helyi és területi hatókörű civil szervezetek igényelhettek támogatást, az összevont <strong>NEAO-KP-1-2026</strong> kategóriában pedig a közösségi környezet kollégium keretein belül lehetett pályázni. A beadási határidők lezárultak, a döntések 2026 első félévében várhatók.</p>
+          <h2 class="na-title">NEA 2026 – megkezdődött a nyertes pályázatok kifizetés-előkészítése, a NIR-fiókot érdemes most figyelni</h2>
+          <p class="na-excerpt">A Bethlen Gábor Alapkezelő Zrt. 2026. augusztus 25-e körül tájékoztatta a <strong>NEAG-KP-1-2026</strong> (egyszerűsített) és <strong>NEAO-KP-1-2026</strong> (összevont) pályázati körök nyerteseit az új banki felhatalmazó levelek benyújtásáról – ez a kifizetések előfeltétele, tehát a döntések gyakorlatilag megszülettek, a hivatalos összesített eredménylista azonban 2026. augusztus 27-ig még nem jelent meg nyilvánosan. Akinek pályázata NIR-fiókjában státuszváltozást mutat, mielőbb küldje be a kért nyilatkozatot, hogy a támogatás folyósítása ne csússzon. Aki nem kapott még értesítést, kövesse figyelemmel fiókját a következő hetekben.</p>
           <div class="na-tags">
             <span class="na-tag">NEA</span>
             <span class="na-tag">NEAG</span>
             <span class="na-tag">NEAO</span>
-            <span class="na-tag">Döntés várható</span>
+            <span class="na-tag">Kifizetés-előkészítés</span>
           </div>
         </div>
       </a>
@@ -426,10 +435,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
       </div>
     </article>
 
-    <!-- #3 – SZJA 1% -->
-    <article id="szja-2026" class="news-article reveal" data-cat="szamvitel">
+    <!-- #2 – SZJA 1% – 2027-es jogosultsághoz szükséges regisztráció -->
+    <article id="szja-2026" class="news-article reveal" data-cat="hataridok">
       <a href="https://nav.gov.hu/ado/szja1_1/felajanlasra-jogosultak/regisztralt_civil" target="_blank" rel="noopener noreferrer" class="na-link">
-        <div class="na-thumb thumb-szamvitel">
+        <div class="na-thumb thumb-hataridok">
           <div class="na-thumb-pattern" aria-hidden="true"></div>
           <div class="na-thumb-icon" aria-hidden="true">
             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
@@ -437,16 +446,16 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
         </div>
         <div class="na-body">
           <div class="na-meta">
-            <span class="na-cat cat-szamvitel">Számvitel</span>
-            <span class="na-date">2026. május 20. volt a felajánlási határidő</span>
+            <span class="na-cat cat-hataridok">Sürgős határidő</span>
+            <span class="na-date">Határidő: 2026. szeptember 30. (25EGYREG) – kb. 1 hónap múlva</span>
           </div>
-          <h2 class="na-title">SZJA 1% 2026 – Felajánlások feldolgozása, NAV ellenőrzések menetrendje</h2>
-          <p class="na-excerpt">A 2025-ös adóévre vonatkozó SZJA 1%-os felajánlások benyújtási határideje 2026. május 20. volt. Az ezt követő időszakban a NAV ellenőrzi a jogosultságot, és feldolgozza a felajánlásokat. Civil szervezeteknek figyelniük kell a felhasználási korlátokra és a kötelező közzétételekre. A <strong>25EGYREG adatlap</strong> benyújtásának elmulasztása esetén a szervezet nem részesülhet 2027-es felajánlásokban.</p>
+          <h2 class="na-title">SZJA 1% – alig egy hónap van hátra a 2027-es jogosultsághoz szükséges 25EGYREG regisztrációra</h2>
+          <p class="na-excerpt">A 2025-ös adóévre vonatkozó SZJA 1%-os felajánlások határideje 2026. május 20-án lezárult, a NAV a beérkezett rendelkezéseket feldolgozta, a kapott összeget a kedvezményezetteknek célhoz kötötten kell elkölteni és közzétenni. Előretekintő, sürgető teendő: aki 2027-ben is szeretne SZJA 1%-os felajánlásokat fogadni, annak a <strong>25EGYREG adatlapot 2026. szeptember 30-ig</strong> elektronikusan be kell nyújtania a NAV-hoz. 2026. augusztus 27-i állapot szerint a határidőig már csak nagyjából egy hónap van hátra – aki még nem regisztrált vagy nem ellenőrizte adatait, mielőbb intézkedjen, hogy jövőre se maradjon ki a felajánlásokból.</p>
           <div class="na-tags">
             <span class="na-tag">SZJA 1%</span>
             <span class="na-tag">NAV</span>
-            <span class="na-tag">Felhasználás</span>
-            <span class="na-tag">Közzététel</span>
+            <span class="na-tag">25EGYREG</span>
+            <span class="na-tag">Határidő: szept. 30.</span>
           </div>
         </div>
       </a>
@@ -456,9 +465,128 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
       </div>
     </article>
 
-    <!-- #4 – Falusi Civil Alap -->
-    <article id="fca-2026" class="news-article reveal" data-cat="palyazat">
-      <a href="https://bgazrt.hu/uj-felhivas-a-2026-evi-magyar-falu-program-falusi-civil-alap-kereteben/" target="_blank" rel="noopener noreferrer" class="na-link">
+    <!-- #3 – Norvég Civil Alap Akciópályázat – NYITOTT, folyamatos beadás -->
+    <article id="norveg-akcio-2026" class="news-article reveal" data-cat="palyazat">
+      <a href="https://palyazat.norvegcivilalap.hu/" target="_blank" rel="noopener noreferrer" class="na-link">
+        <div class="na-thumb thumb-palyazat">
+          <div class="na-thumb-pattern" aria-hidden="true"></div>
+          <div class="na-thumb-icon" aria-hidden="true">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          </div>
+        </div>
+        <div class="na-body">
+          <div class="na-meta">
+            <span class="na-cat cat-palyazat">Pályázat</span>
+            <span class="na-date">Folyamatos beadás – nincs fix határidő</span>
+          </div>
+          <h2 class="na-title">Norvég/EGT Civil Alap – Akciópályázat továbbra is NYITOTT (1 000–25 000 EUR, önrész nélkül)</h2>
+          <p class="na-excerpt">A magyarországi Norvég/EGT Civil Alap akciópályázata <strong>folyamatosan fogadja a beadványokat</strong>, összesen 850 010 EUR keretösszegből. Az igényelhető támogatás 1 000–25 000 EUR, az intenzitás 100% (önrész nem szükséges), a projektek 3–12 hónapig futhatnak. A felhívás célja civil szervezetek aktuális problémákra, napirenden lévő ügyekre vagy sürgető helyzetekre reagáló rövid távú akcióinak, kampányainak támogatása. Pályázhatnak magyarországi bejegyzett egyesületek, alapítványok, nonprofit gazdasági társaságok és szociális szövetkezetek; informális csoportok partnerként vehetnek részt. A programot az Ökotárs, az Autonómia és a Kárpátok Alapítvány konzorciuma bonyolítja.</p>
+          <div class="na-tags">
+            <span class="na-tag">Norvég Alap</span>
+            <span class="na-tag">1–25 ezer EUR</span>
+            <span class="na-tag">Önrész nélkül</span>
+            <span class="na-tag">Folyamatos beadás</span>
+          </div>
+        </div>
+      </a>
+      <div class="na-footer">
+        <div class="na-source">Forrás: <a href="https://okotars.hu" target="_blank" rel="noopener">Ökotárs Alapítvány ↗</a></div>
+        <span class="na-read">Segítségre van szüksége? <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
+      </div>
+    </article>
+
+    <!-- #4 – Pro Filii Alapítvány Q3 – LEZÁRULT -->
+    <article id="profilii-q3-2026" class="news-article reveal" data-cat="szektorhir">
+      <a href="https://profilii.hu/palyazati-kiiras/" target="_blank" rel="noopener noreferrer" class="na-link">
+        <div class="na-thumb thumb-szektorhir">
+          <div class="na-thumb-pattern" aria-hidden="true"></div>
+          <div class="na-thumb-icon" aria-hidden="true">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          </div>
+        </div>
+        <div class="na-body">
+          <div class="na-meta">
+            <span class="na-cat cat-szektorhir">Szektorhír</span>
+            <span class="na-date">Lezárult: 2026. július 31. – döntés várható</span>
+          </div>
+          <h2 class="na-title">Pro Filii Alapítvány – a Q3 pályázati kör lezárult (100 ezer – 10 millió Ft, önrész nélkül)</h2>
+          <p class="na-excerpt">A Pro Filii Alapítvány 2026. évi 3. negyedéves pályázati köre 2026. július 31-én lezárult – civil és nonprofit szervezetek, valamint magánszemélyek pályázhattak 100 000–10 000 000 Ft támogatásra közösségi célú, közérdekű vagy humánus tevékenységekre, önrész nélkül. Az alapítvány negyedévente ír ki új kört, így a következő – negyedik negyedéves – pályázati kör várhatóan 2026 őszén nyílhat meg. Ha pályázott, kövesse a profilii.hu felületét az eredményhirdetésért; ha lemaradt a Q3 körről, érdemes már most készülni a következő beadási időszakra.</p>
+          <div class="na-tags">
+            <span class="na-tag">Pro Filii</span>
+            <span class="na-tag">100 ezer – 10 M Ft</span>
+            <span class="na-tag">Önrész nélkül</span>
+            <span class="na-tag">Lezárult</span>
+          </div>
+        </div>
+      </a>
+      <div class="na-footer">
+        <div class="na-source">Forrás: <a href="https://profilii.hu" target="_blank" rel="noopener">Pro Filii Alapítvány ↗</a></div>
+        <span class="na-read">Segítségre van szüksége? <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
+      </div>
+    </article>
+
+    <!-- #5 – Norvég Civil Alap Kapacitásfejlesztés + Szervezeti támogatás – döntésre várva -->
+    <article id="norveg-kapacitas-2026" class="news-article reveal" data-cat="palyazat">
+      <a href="https://palyazatok.org/norveg-civil-alap-kapacitasfejlesztes-es-halozatepites-palyazat/" target="_blank" rel="noopener noreferrer" class="na-link">
+        <div class="na-thumb thumb-palyazat">
+          <div class="na-thumb-pattern" aria-hidden="true"></div>
+          <div class="na-thumb-icon" aria-hidden="true">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          </div>
+        </div>
+        <div class="na-body">
+          <div class="na-meta">
+            <span class="na-cat cat-palyazat">Pályázat</span>
+            <span class="na-date">Lezárult: 2026. máj. 5. / máj. 11. – döntés még mindig nem publikus</span>
+          </div>
+          <h2 class="na-title">Norvég Civil Alap – Kapacitásfejlesztés és szervezeti támogatás – az eredmény augusztus végén is várat magára</h2>
+          <p class="na-excerpt">A Norvég Civil Alap kapacitásfejlesztési és hálózatépítési pályázatának beadási határideje 2026. május 5-én, a szervezeti támogatásé május 11-én zárult. A kapacitásfejlesztési pályázat 50 000–100 000 EUR közötti támogatást kínált 24–48 hónapos projektekre, 100%-os intenzitással (önrész nélkül). 2026. augusztus 27-i állás szerint a hivatalos döntési lista továbbra sem jelent meg nyilvánosan – ha pályázott, kövesse figyelemmel az Ökotárs Alapítvány honlapját, az eredmény a következő hetekben várható.</p>
+          <div class="na-tags">
+            <span class="na-tag">Norvég Alap</span>
+            <span class="na-tag">50–100 ezer EUR</span>
+            <span class="na-tag">Lezárult</span>
+            <span class="na-tag">Döntésre vár</span>
+          </div>
+        </div>
+      </a>
+      <div class="na-footer">
+        <div class="na-source">Forrás: <a href="https://okotars.hu/programok/egt-es-norveg-civil-alap" target="_blank" rel="noopener">Ökotárs Alapítvány ↗</a></div>
+        <span class="na-read">Segítségre van szüksége? →</span>
+      </div>
+    </article>
+
+    <!-- #6 – VCA Városi Civil Alap eredmények -->
+    <article id="vca-2026" class="news-article reveal" data-cat="szektorhir">
+      <a href="https://bgazrt.hu/megjelentek-a-2026-evi-varosi-civil-alap-kereteben-meghirdetett-palyazati-kiiras-eredmenyei/" target="_blank" rel="noopener noreferrer" class="na-link">
+        <div class="na-thumb thumb-szektorhir">
+          <div class="na-thumb-pattern" aria-hidden="true"></div>
+          <div class="na-thumb-icon" aria-hidden="true">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          </div>
+        </div>
+        <div class="na-body">
+          <div class="na-meta">
+            <span class="na-cat cat-szektorhir">Szektorhír</span>
+            <span class="na-date">Eredmények megjelentek: 2025. december 11.</span>
+          </div>
+          <h2 class="na-title">Városi Civil Alap (VCA) 2026 – az eredménylista már elérhető, folyamatban a szerződéskötés</h2>
+          <p class="na-excerpt">A Városi Civil Alap (VCA-KP-1-2026) az 5 000 főnél nagyobb lélekszámú városokban székhellyel rendelkező civil szervezetek számára hirdette meg 2026-os pályázatát civil közösségi tevékenységek támogatására. A pályázati kiírás eredménylistája <strong>2025. december 11-én megjelent</strong> a BGA Zrt. honlapján, letölthető PDF formátumban. Ha az Ön szervezete nyert, a szerződéskötés és az elszámolás lépéseiben szívesen segítünk egyéni konzultáción.</p>
+          <div class="na-tags">
+            <span class="na-tag">VCA</span>
+            <span class="na-tag">Városi szervezetek</span>
+            <span class="na-tag">Eredmény elérhető</span>
+          </div>
+        </div>
+      </a>
+      <div class="na-footer">
+        <div class="na-source">Forrás: <a href="https://bgazrt.hu" target="_blank" rel="noopener">BGA Zrt. ↗</a></div>
+        <span class="na-read">Egyéni konzultáció <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
+      </div>
+    </article>
+
+    <!-- #7 – FCA döntések -->
+    <article id="fca-2026" class="news-article reveal" data-cat="szektorhir">
+      <a href="https://bgazrt.hu/tamogatasok/magyar-falu-program/" target="_blank" rel="noopener noreferrer" class="na-link">
         <div class="na-thumb thumb-szektorhir">
           <div class="na-thumb-pattern" aria-hidden="true"></div>
           <div class="na-thumb-icon" aria-hidden="true">
@@ -467,11 +595,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
         </div>
         <div class="na-body">
           <div class="na-meta">
-            <span class="na-cat cat-palyazat">Pályázat</span>
-            <span class="na-date">2026. január 21. – február 20. · döntések várhatók</span>
+            <span class="na-cat cat-szektorhir">Szektorhír</span>
+            <span class="na-date">Lezárult: 2026. február 20. – eredmények elérhetők</span>
           </div>
-          <h2 class="na-title">Magyar Falu Program – Falusi Civil Alap (FCA) 2026 – 5 milliárd Ft-os keret</h2>
-          <p class="na-excerpt">Az Agrárminisztérium 2026. január 21-én meghirdette a Magyar Falu Program Falusi Civil Alap keretében a „Civil közösségi tevékenységek és feltételeinek 2026. évi támogatása" pályázatot (FCA-KP-1-2026). A <strong>teljes keret 5 milliárd forint</strong>. Pályázhattak azok az egyesületek és alapítványok, amelyek székhelye 5 000 főt meg nem haladó magyarországi településen van. A döntések 2026 második negyedévében várhatók.</p>
+          <h2 class="na-title">Magyar Falu Program – Falusi Civil Alap 2026 – eredmények elérhetők, szerződéskötés folyamatban</h2>
+          <p class="na-excerpt">A Falusi Civil Alap 2026 (FCA-KP-1-2026) beadási határideje 2026. február 20-án zárult. Az 5 000 fő alatti településeken székhellyel rendelkező szervezetek négy alprogramban (ingatlanberuházás max. 7 M Ft, gépjárműbeszerzés, eszközbeszerzés max. 2 M Ft, programszervezés max. 2 M Ft) igényelhettek támogatást az 5 milliárd forintos keretből. Az eredménylisták és a szerződéskötéshez szükséges tudnivalók a BGA Zrt. honlapján és a fca@bgazrt.hu elérhetőségen érdeklődhetők meg – ha nyert, mielőbb vegye fel a kapcsolatot az alapkezelővel.</p>
           <div class="na-tags">
             <span class="na-tag">FCA</span>
             <span class="na-tag">Magyar Falu Program</span>
@@ -481,68 +609,42 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
         </div>
       </a>
       <div class="na-footer">
-        <div class="na-source">Forrás: <a href="https://bgazrt.hu" target="_blank" rel="noopener">BGA Zrt. ↗</a> · <a href="https://www.nak.hu" target="_blank" rel="noopener">NAK ↗</a></div>
+        <div class="na-source">Forrás: <a href="https://bgazrt.hu" target="_blank" rel="noopener">BGA Zrt. ↗</a></div>
         <span class="na-read">Segítségre van szüksége? <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
       </div>
     </article>
 
-    <!-- #5 – VCA Városi Civil Alap -->
-    <article id="vca-2026" class="news-article reveal" data-cat="palyazat">
-      <a href="https://www.nonprofit.hu/palyazatok/Civil-kozossegi-tevekenysegek-es-felteteleinek-2026-evi-tamogatasa--VCA-KP-1-2026" target="_blank" rel="noopener noreferrer" class="na-link">
-        <div class="na-thumb thumb-palyazat">
+    <!-- #8 – Civil éves beszámoló iFORM -->
+    <article id="besz-ifom-2026" class="news-article reveal" data-cat="szamvitel">
+      <a href="https://birosag.hu/ugyfeleknek/urlapok-nyomtatvanyok/eljarasok-nyomtatvanyai/civil-eljarasok-urlapjai/civil-beszamolok" target="_blank" rel="noopener noreferrer" class="na-link">
+        <div class="na-thumb thumb-szamvitel">
           <div class="na-thumb-pattern" aria-hidden="true"></div>
           <div class="na-thumb-icon" aria-hidden="true">
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
           </div>
         </div>
         <div class="na-body">
           <div class="na-meta">
-            <span class="na-cat cat-palyazat">Pályázat</span>
-            <span class="na-date">2026 · VCA-KP-1-2026</span>
+            <span class="na-cat cat-szamvitel">Számvitel</span>
+            <span class="na-date">Lezárult: 2026. május 31. – iFORM kötelező 2026-tól</span>
           </div>
-          <h2 class="na-title">Városi Civil Alap (VCA) 2026 – 5 000 főnél nagyobb városok civil szervezeteinek</h2>
-          <p class="na-excerpt">A Városi Civil Alap (VCA-KP-1-2026) az 5 000 főnél nagyobb lélekszámú városokban székhellyel rendelkező civil szervezeteknek biztosít lehetőséget ugyanolyan típusú célok megvalósítására, amelyekre a Falusi Civil Alap keretén belül is pályázni lehet. A pályázatról és az aktuális határidőkről személyes konzultáción adunk részletes tájékoztatást.</p>
+          <h2 class="na-title">Civil éves beszámoló 2026 – iFORM kötelező, ÁNYK megszűnt</h2>
+          <p class="na-excerpt">2026. január 1-jétől a civil szervezetek kizárólag <strong>iFORM űrlapon</strong> nyújthatják be éves számviteli beszámolójukat az OBH-hoz. Az ÁNYK program 2025. december 31-én megszűnt. A benyújtási határidő 2026. május 31. volt – az ezt elmulasztó szervezetek pótlólagos benyújtással rendezhetik a helyzetet. Elektronikus eljárásra kötelezett szervezeteknél (közhasznú, szövetség, 50 M Ft feletti mérlegfőösszeg) kizárólag elektronikus út fogadható el.</p>
           <div class="na-tags">
-            <span class="na-tag">VCA</span>
-            <span class="na-tag">Városi szervezetek</span>
-            <span class="na-tag">Közösségi tevékenység</span>
+            <span class="na-tag">Éves beszámoló</span>
+            <span class="na-tag">iFORM</span>
+            <span class="na-tag">OBH</span>
+            <span class="na-tag">Közzététel</span>
           </div>
         </div>
       </a>
       <div class="na-footer">
-        <div class="na-source">Forrás: <a href="https://www.nonprofit.hu" target="_blank" rel="noopener">nonprofit.hu ↗</a></div>
-        <span class="na-read">Egyéni konzultáció <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
+        <div class="na-source">Forrás: <a href="https://birosag.hu" target="_blank" rel="noopener">Magyarország Bíróságai ↗</a></div>
+        <span class="na-read">Segítségre van szüksége? <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
       </div>
     </article>
 
-    <!-- #6 – Pro Filii -->
-    <article id="profilii-2026" class="news-article reveal" data-cat="palyazat">
-      <a href="https://profilii.hu/palyazati-kiiras/" target="_blank" rel="noopener noreferrer" class="na-link">
-        <div class="na-thumb thumb-szektorhir">
-          <div class="na-thumb-pattern" aria-hidden="true"></div>
-          <div class="na-thumb-icon" aria-hidden="true">
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-          </div>
-        </div>
-        <div class="na-body">
-          <div class="na-meta">
-            <span class="na-cat cat-szektorhir">Szektorhír</span>
-            <span class="na-date">2026. július 1-től – Pro Filii Q3</span>
-          </div>
-          <h2 class="na-title">Pro Filii Alapítvány – Új negyedéves pályázati kör nyílik júliustól</h2>
-          <p class="na-excerpt">A Pro Filii Alapítvány 2026. július 1-jétől új negyedéves pályázati kört nyit civil és nonprofit szervezetek, valamint magánszemélyek számára. A pályázat közösségi célokat szolgáló, közérdekű vagy humánus okokból megvalósítandó tevékenységeket támogat. Az alapítvány rendszeres adományozóinak lehetősége van folyamatosan pályázni.</p>
-          <div class="na-tags">
-            <span class="na-tag">Pro Filii</span>
-            <span class="na-tag">Negyedéves kör</span>
-            <span class="na-tag">Közösségi cél</span>
-          </div>
-        </div>
-      </a>
-      <div class="na-footer">
-        <div class="na-source">Forrás: <a href="https://profilii.hu" target="_blank" rel="noopener">Pro Filii Alapítvány ↗</a></div>
-        <span class="na-read">Bővebb információ <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
-      </div>
-    </article>
+    <!-- BOT-HIREK-END -->
 
     <!-- ÜRES ÁLLAPOT (rejtett) -->
     <div class="empty-state" id="emptyState" style="display:none;" role="status">
@@ -562,25 +664,25 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
         Közelgő határidők
       </div>
       <div class="hatarido-list">
-        <div class="hd-item hd-zold">
-          <div class="hd-name">Pro Filii Q3 nyitás</div>
-          <div class="hd-date">2026. július 1.</div>
-          <div class="hd-sub">Negyedéves civil pályázat</div>
+        <div class="hd-item hd-piros">
+          <div class="hd-name">Pro Filii Q3 – beadási határidő</div>
+          <div class="hd-date">2026. július 31. – HOLNAP zárul!</div>
+          <div class="hd-sub">100 ezer – 10 M Ft, önrész nélkül</div>
+        </div>
+        <div class="hd-item hd-sarga">
+          <div class="hd-name">SZJA 1% – 25EGYREG regisztráció</div>
+          <div class="hd-date">2026. szeptember 30.</div>
+          <div class="hd-sub">Feltétele a 2027-es felajánlások fogadásának</div>
         </div>
         <div class="hd-item hd-sarga">
           <div class="hd-name">NEA 2026 döntések</div>
-          <div class="hd-date">2026. első félév</div>
-          <div class="hd-sub">NEAG / NEAO eredmények</div>
-        </div>
-        <div class="hd-item hd-sarga">
-          <div class="hd-name">FCA döntések</div>
-          <div class="hd-date">2026. Q2</div>
-          <div class="hd-sub">Magyar Falu Program eredmény</div>
+          <div class="hd-date">2026. II. félév – még nem jelent meg</div>
+          <div class="hd-sub">NEAG / NEAO eredmények – ellenőrizze NIR-fiókját</div>
         </div>
         <div class="hd-item hd-zold">
-          <div class="hd-name">Norvég Civil Alap – új kör</div>
-          <div class="hd-date">Megnyitás tájékoztatjuk</div>
-          <div class="hd-sub">Figyelje híreink!</div>
+          <div class="hd-name">Norvég Alap – Akciópályázat</div>
+          <div class="hd-date">Folyamatos beadás, havi döntés</div>
+          <div class="hd-sub">1–25 ezer EUR, 100% intenzitás</div>
         </div>
       </div>
     </div>
@@ -647,15 +749,16 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
         <ul class="footer-col-links" role="list">
           <li><a href="index.html#widget">Pályázati előszűrő</a></li>
           <li><a href="#">ÁSZF</a></li>
-          <li><a href="#">Adatkezelés</a></li>
+          <li><a href="adatvedelem.html">Adatkezelés</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <div class="footer-copy">© 2026 Civil Ház · 8200 Veszprém, Kossuth u. 10. · civilhaz@vpmegye.hu · 88/401-110</div>
       <div class="footer-legal">
-        <a href="#">Adatvédelem</a>
+        <a href="adatvedelem.html">Adatvédelem</a>
         <a href="#">ÁSZF</a>
+        <a href="#" onclick="openCookieSettings(); return false;">Sütik</a>
       </div>
     </div>
   </div>
